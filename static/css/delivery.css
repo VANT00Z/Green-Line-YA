@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: block;
+    margin-top: 0;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: black;
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Logo */
+header a {
+    font-size: 34px;
+    font-weight: 900;
+    color: rgba(0, 128, 0, 1);
+    text-shadow: 4px 4px 7px gray;
+    margin-top: 0;
+}
+
+header a {
+    transform: translateY(-1px);
+    box-shadow: rgba(0, 0, 0, 0.15);
+}
+
+header {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    width: 200px;
+}
+
+header p {
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.content {
+    z-index: 2;
+}
+
+.content .buttons {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    padding-top: 30vh;
+    gap: 10px;
+}
+
+.content .buttons button {
+    font-weight: 800;
+    border-color: #D9D9D9;
+    border-radius: 0 16px 16px 0;
+}
+
+.content .buttons button:hover {
+    animation: buttonsHover 0.2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes buttonsHover {
+    from {
+        transform: translateY(0);
+        box-shadow: none;
+    }
+
+    to {
+        transform: translateY(-5px);
+        box-shadow: -3px 5px #bdbdbd;
+    }
+}
+
+.ellipse {
+    width: 850px;
+    height: 650px;
+    background-color: rgba(0, 128, 0, 1);
+    border-radius: 50%;
+    opacity: 60%;
+    left: 70vw;
+    top: 45vh;
+    position: absolute;
+    z-index: 1;
+}
+
+/* Popups */
+.popup {
+    display: none;
+    position: absolute;
+    align-items: center;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+}
+
+.popup-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 700px;
+    min-height: 300px;
+    padding: 40px;
+    background-color: white;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 14%;
+    filter: drop-shadow(0 0 20px black);
+    animation: popupFade 0.4s ease-in;
+}
+
+.popup-body form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.popup-body p {
+    color: #008000;
+    font-size: 30px;
+    font-weight: 800;
+    padding-bottom: 18px;
+    cursor: default;
+}
+
+.popup-body input {
+    font-family: "Montserrat";
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 5px 10px;
+    width: 200px;
+}
+
+.popup-body button {
+    font-family: "Montserrat";
+    background-color: #019601d7;
+    border-radius: 13px;
+    padding: 10px 15px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.popup-body button:hover {
+    animation: popupButtonHover 0.2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes popupButtonHover {
+    from {
+        transform: translateY(0);
+        box-shadow: none;
+    }
+
+    to {
+        transform: translateY(-2px);
+        box-shadow: 0 0 10px 5px gray;
+    }
+}
+
+.popup-body a {
+    padding-top: 10px;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.popup-body a:hover {
+    color: red;
+}
+
+@keyframes popupFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .content .buttons button {
+        font-size: 64px;
+        width: 550px;
+        padding: 20px 30px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 900px) {
+    .content .buttons button {
+        font-size: 32px;
+        width: auto;
+        padding: 20px 30px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .content .buttons button {
+        font-size: 32px;
+        width: auto;
+        padding: 10px 20px;
+    }
+}

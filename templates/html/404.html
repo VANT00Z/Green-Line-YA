@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Ошибка - GreenLine{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/space-page.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="space">
+    <a href="{% url 'html:index' %}" class="logo">GreenLine</a>
+    <h1>Произошла ошибка...</h1>
+</div>
+{% endblock %}

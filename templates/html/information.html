@@ -1,0 +1,243 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  GreenLine - Информация
+{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/information.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <header>
+      <a href="{% url 'html:index' %}" class="logo">GreenLine</a>
+      <p>Информация</p>
+    </header>
+    <ul class="content">
+      <li class="cont-li">
+        <h1>Что такое переработка и почему она нужна?</h1>
+        <span><u>Переработка мусора</u> - это получение материалов из уже использованных продуктов, например: пластиковые стаканчики, бутылки из под напитков и тому подобное. Весь этот мусор мы можем переработать и сделать новые предметы быта без вреда природе.</span>
+      </li>
+      <li class="cont-li">
+        <h1>Что угрожает природе?</h1>
+        <span><u>По данным Росприроднадзора</u>, в 2024 году Росийская инфорстутура сгенерировала более 8,5 млрд тон мусора. Большую часть мусора выбрасывают на свалки. На начало 2025 года в стране насчитывалось не менее 7 тысяч легальных свалок, но некоторые люди выбрасывают мусор в неположенном месте. На конец 2023 года насчитывалось 10,2 тысяч несанкционированных свалок.</span>
+      </li>
+      <li class="cont-li">
+        <h1>Виды мусора</h1>
+        <ul class="types">
+          <h2>Пластик</h2>
+          <li class="type">
+            <ul>
+              <li>
+                <img src="{% static 'imgs/trash-types/1-pet.png' %}" alt="PET" />
+                <p>Бутылки из-под воды, газированных напитков, сока, молока</p>
+                <p class="res"></p>
+              </li>
+              <li>
+                <img src="{% static 'imgs/trash-types/2-hdpe.png' %}" alt="HDPE" />
+                <p>Упаковки от шампуня, геля для душа, моющих средств</p>
+                <p class="res"></p>
+              </li>
+              <li>
+                <img src="{% static 'imgs/trash-types/3-pvc.png' %}" alt="PVC" />
+                <p>Контейнеры и пленка для пищевых продуктов</p>
+                <p class="res"></p>
+              </li>
+              <li>
+                <img src="{% static 'imgs/trash-types/4-idpe.jpg' %}" alt="IDPE" />
+                <p>Пластиковые пакеты, многоразовые сумки, бутылки от моющих средств</p>
+                <p class="res"></p>
+              </li>
+              <li>
+                <img src="{% static 'imgs/trash-types/5-pp.png' %}" alt="PP" />
+                <p>Контейнеры для пищевых продуктов, многоразовая пластиковая посуда, лотки в холодильниках</p>
+                <p class="nonres"></p>
+              </li>
+              <li>
+                <img src="{% static 'imgs/trash-types/6-ps.jpg' %}" alt="PS" />
+                <p>Одноразовая посуда, стаканчики из-под йогуртов, упаковки для яиц</p>
+                <p class="res"></p>
+              </li>
+              <li>
+                <img src="{% static 'imgs/trash-types/7-other.jpg' %}" alt="OTHER" />
+                <p>Поликорбонат, полиамид, биопластики и многослойная упаковка</p>
+                <p class="nonres"></p>
+              </li>
+            </ul>
+          </li>
+          <li class="type">
+            <h2>Макулатура</h2>
+            <ul>
+              <li>
+                <h3>Группа А (высокое качество)</h3>
+                <p>Белая немелованная бумага, обрезки белой бумаги, использованные белые пакеты.</p>
+                <p class="res"></p>
+              </li>
+              <li>
+                <h3>Группа Б (среднее качество)</h3>
+                <p>Гофрокартон, архивные документы (офисная бумага), книги, журналы, блокноты.</p>
+                <p class="res"></p>
+              </li>
+              <li>
+                <h3>Группа В (низкое качество)</h3>
+                <p>Газеты, бумажные втулки, картон с пропиткой, цветная бумага.</p>
+                <p class="res"></p>
+              </li>
+            </ul>
+          </li>
+          <li class="type">
+            <h2>Стекло</h2>
+            <ul>
+              <li>
+                <img src="{% static 'imgs/glass-types/clear_glass.jpg' %}" alt="Стеклотара" />
+                <h3>Стеклотара</h3>
+                <p>Банки, бутылки, флаконы из-под напитков</p>
+              </li>
+              <li>
+                <img src="{% static 'imgs/glass-types/window_glass.jpg' %}" alt="Листовое стекло" />
+                <h3>Листовое стекло</h3>
+                <p>Оконное, строительное стекла</p>
+              </li>
+              <li>
+                <img src="{% static 'imgs/glass-types/glass_parts.avif' %}" alt="Стеклобой" />
+                <h3>Стеклобой</h3>
+                <p>Осколки всех перечисленных видов, разделяються на два вида до 50 мм и до 2 кг</p>
+              </li>
+              <li>
+                <img src="{% static 'imgs/glass-types/glass.jpg' %}" alt="Посуда" />
+                <h3>Посуда</h3>
+                <p>Тарелки, чашки, кружки и тому подобное</p>
+              </li>
+            </ul>
+          </li>
+          <li class="type">
+            <h2>Металл</h2>
+            <ul>
+              <h3>Черный металл</h3>
+              <li>
+                <img src="{% static 'imgs/metal-types/armature.jpg' %}" alt="Стальной лом" />
+                <h3>Стальной лом</h3>
+                <p>Трубы, уголки, швеллеры, балки, арматура, листовой металл</p>
+              </li>
+              <li>
+                <img src="{% static 'imgs/metal-types/plumbing.jpg' %}" alt="Чугунный лом" />
+                <h3>Чугунный лом</h3>
+                <p>Сантехника, радиаторы, промышленные детали, стружка</p>
+              </li>
+              <li>
+                <img src="{% static 'imgs/metal-types/noncor-metal.jpeg' %}" alt="Нержавеющая сталь" />
+                <h3>Нержавеющая сталь</h3>
+                <p>Отходы с содержанием никеля (более 10 процентов)</p>
+              </li>
+              <li>
+                <img src="{% static 'imgs/metal-types/metal-parts.jpg' %}" alt="Стружка" />
+                <h3>Стружка</h3>
+                <p>Стальная или чугунная</p>
+              </li>
+              <h3>Цветной металл</h3>
+              <li>
+                <img src="{% static 'imgs/metal-types/copper.jpg' %}" alt="Медь" />
+                <h3>Медь</h3>
+                <p>Кабели, электропроводка</p>
+              </li>
+              <li>
+                <img src="{% static 'imgs/metal-types/aluminium.jpg' %}" alt="Алюминий" />
+                <h3>Алюминий</h3>
+                <p>Профиль, банки, электропроводка</p>
+              </li>
+              <li>
+                <img src="{% static 'imgs/metal-types/brass.png' %}" alt="Латунь" />
+                <h3>Латунь</h3>
+                <p>Сплав меди с цинком (радиаторы, сантехнические изделия, стружка)</p>
+              </li>
+              <li>
+                <img src="{% static 'imgs/metal-types/bronze.jpg' %}" alt="Бронза" />
+                <h3>Бронза</h3>
+                <p>Сплав меди с оловом, изделия, стружка</p>
+              </li>
+              <li>
+                <img src="{% static 'imgs/metal-types/lead.png' %}" alt="Свинец" />
+                <h3>Свинец</h3>
+                <p>Кабель, переплав, аккумуляторы</p>
+              </li>
+              <li>
+                <img src="{% static 'imgs/metal-types/titan.png' %}" alt="Титан/Магний" />
+                <h3>Титан/Магний</h3>
+                <p>Технические детали</p>
+              </li>
+            </ul>
+          </li>
+          <li class="type">
+            <h2>Резина</h2>
+            <ul>
+              <li>
+                <img src="" alt="Легковые шины" />
+                <h3>Легковые шины</h3>
+                <p>Шины для легкового транспорта. R13 - 19 и более</p>
+              </li>
+              <li>
+                <img src="" alt="Грузовые шины" />
+                <h3>Грузовые шины</h3>
+                <p>Шины для грузового транспорта: грузовики, газели и тп. R17 - 24</p>
+              </li>
+              <li>
+                <img src="" alt="Крупногабаритные шины" />
+                <h3>Крупногабаритные шины</h3>
+                <p>Шины для сверхтяжелой карьерной, строительной техники. R8 - 24</p>
+              </li>
+              <li>
+                <img src="" alt="Цельнолитые шины" />
+                <h3>Цельнолитые шины</h3>
+                <p>Шины без содержания воздуха. Часто используются для спецтехники. R24 - 51 и более</p>
+              </li>
+            </ul>
+          </li>
+          <li class="type">
+            <h2>Остальное</h2>
+            <ul>
+              <li>
+                <img src="{% static 'imgs/other-trash-imgs/wood.avif' %}" alt="Древесина" />
+                <h3>Древесина</h3>
+                <p>Стружка, опилки, тара и тп</p>
+              </li>
+              <li>
+                <img src="{% static 'imgs/other-trash-imgs/textile.avif' %}" alt="Текстиль" />
+                <h3>Текстиль</h3>
+                <p>Ткани, одежда, обувь и тп</p>
+              </li>
+              <li>
+                <img src="{% static 'imgs/other-trash-imgs/tetra-pak.jpg  ' %}" alt="Тетра-пак" />
+                <h3>Тетра-пак</h3>
+                <p>Многослойные (сложные) упаковки, материалы</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="cont-li">
+        <h1>Литература и документация</h1>
+        <ul>
+          <h2>Статистика</h2>
+          <li>
+            <a href="https://rpn.gov.ru/open-service/analytic-data/statistic-reports/unauthorized-landfill/" target="_blank">Информация по несанкционированным свалкам отходов</a>
+          </li>
+          <li>
+            <a href="https://rg.ru/2022/01/19/skolko-vtorsyria-poluchaetsia-vydeliat-iz-bytovogo-musora.html" target="_blank">Статья Российской газеты. Информация о количестве вторсырья</a>
+          </li>
+          <li>
+            <a href="https://rpn.gov.ru/open-service/analytic-data/statistic-reports/production-consumption-waste/" target="_blank">Отчеты Росприроднадзора</a>
+          </li>
+          <h2>Информация</h2>
+          <li>
+            <a href="https://www.google.com/url?sa=i&source=web&rct=j&url=https://www.mirstekla-expo.ru/ru/articles/2016/utilizaciya-stekla-i-pererabotka-stekloboya/&ved=2ahUKEwjuk4GR4dOSAxXAOBAIHWmlG1oQqYcPegQIChAC&opi=89978449&cd&psig=AOvVaw2l_ldFz56vJZVt8UQglesd&ust=1770979029658000" target="_blank">Утилизация стекла и переработка стеклобоя</a>
+          </li>
+          <li>
+            <a href="https://www.google.com/url?sa=i&source=web&rct=j&url=https://hammermaster.ru/stati/sortirovka-metalloloma/&ved=2ahUKEwjrhabq_dWSAxUaERAIHbaNMMEQqYcPegQIBxAJ&opi=89978449&cd&psig=AOvVaw2wVG6ckyOjTqg6Xagxjkfl&ust=1771055452578000">Типы металлов и их сортировка</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+{% endblock %}

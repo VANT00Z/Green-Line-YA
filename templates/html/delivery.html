@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Доставка - GreenLine
+{% endblock %}
+{% block meta_description %}
+  Оформить быстрый вывоз мусора
+{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/delivery.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <header>
+    <a href="{% url 'html:index' %}">GreenLine</a>
+    <p class="title-page">Доставка</p>
+  </header>
+
+  <div class="content">
+    <div class="buttons">
+      <button style="cursor: pointer;" id="open-order-popup">Заказать</button>
+      <button style="cursor: pointer;" id="open-history-popup">История</button>
+      <button style="cursor: pointer;" id="open-active-popup">Активные</button>
+    </div>
+    <div class="ellipse"></div>
+  </div>
+
+  <div class="popup" id="delivery-popup">
+    <div class="popup-container">
+      <div class="popup-body" style="max-width: 500px;">
+        <p>Заказать</p>
+        <form action="order" method="post">
+          {% csrf_token %}
+          <input name="delivery-adress" type="text" placeholder="Адрес" />
+          <input name="delivery-date" type="datetime-local" />
+          <input name="delivery-weight" type="number" placeholder="Приблизительный вес" />
+          <input name="delivery-description" type="text" placeholder="Описание" />
+          <button type="submit">Оформить</button>
+          <a class="close-popup" style="cursor: pointer;">Закрыть</a>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup" id="history-popup">
+    <div class="popup-container">
+      <div class="popup-body">
+        <p>История</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup" id="active-popup">
+    <div class="popup-container">
+      <div class="popup-body">
+        <p>Активные</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="{% static 'js/delivery_popups.js' %}"></script>
+{% endblock %}

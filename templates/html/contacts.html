@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Контакты - GreenLine
+{% endblock %}
+{% block meta_description %}
+  Контакты поддержки компании GreenLine
+{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/contacts.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="content">
+      <div class="logo-name">
+        <a href="{% url 'html:index' %}" class="logo">GreenLine</a>
+        <label class="title-name">Контакты</label>
+      </div>
+      <p class="slogan">Сделаем планету чище вместе!</p>
+      <div class="contacts">
+        <div class="contact">
+          <label class="lab">контактный номер:</label>
+          <a target="_blank" class="social-info" href="tel:81234567890">8-123-456-78-90</a>
+        </div>
+        <div class="contact">
+          <label class="lab">telegram-bot:</label>
+          <a target="_blank" class="social-info" href="https://t.me/Green_Line_Support_bot?start=/start">@Green_Line_Support_bot</a>
+        </div>
+        <div class="contact">
+          <label class="lab">почта:</label>
+          <i><a target="_blank" class="social-info" href="mailto:greenlinesupporing@mail.ru?subject=Обращение в поддержку">greenlinesupporing@mail.ru</a></i>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar">
+      <img src="{% static 'imgs/forest1.png' %}" class="image-forest" />
+    </div>
+  </div>
+  <div class="extra-cont">
+    <label class="extra">*Обращения от юридических лиц и партнеров также принимаються с данных контактов</label>
+  </div>
+{% endblock %}

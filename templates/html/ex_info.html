@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Дополнительная информация - GreenLine
+{% endblock %}
+{% block meta_description %}
+  Подробная информация о проекте Green Line
+{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/ex-info.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <div class="logo-name">
+    <a href="{% url 'html:index' %}" class="logo">GreenLine</a>
+    <label class="title-page">Дополнительная информация</label>
+  </div>
+  <div class="content">
+    <div class="texts">
+      <p class="text1">Проект Green Line был придуман и сделан учениками 10 класса. Специально для упрощения сдачи мусора на переработку. Вместе, мы сможем сделать планету чище, а наши дома уютнее.</p>
+      <p class="text2">Согласно образовательной программы Российской Федерации, ученики 10-11 класса, должны создать проект, приносящий пользу обществу. Собравшись небольшой командой, мы обсудили, придумали и реализовали, то что вы видите сейчас. Green Line - это не просто сайт для переработки, это целая семья, объединяющая не только работников, но и пользователей.</p>
+    </div>
+    <nav>
+      <ul class="element">
+        <p for="developers" class="title-list">Разработчики</p>
+        <li>
+          <a target="_blank" href="https://github.com/VANT00Z">Backend Developer - <i>Иван Галактионов</i></a>
+        </li>
+        <li>
+          <p>
+            Front Developer - <i>Иван Галактионов</i>
+          </p>
+        </li>
+        <li>
+          <p>
+            Designer - <i>Топал Николай</i>
+          </p>
+        </li>
+      </ul>
+      <ul class="element">
+        <p for="documents" class="title-list">Источники и документация проекта:</p>
+        <li>
+          <a target="_blank" href="https://www.mos.ru/donm/">Сайт Департамент образования и науки города Москвы</a>
+        </li>
+        <li>
+          <a target="_blank" href="https://profil.mos.ru/">"Городские проекты"</a>
+        </li>
+      </ul>
+      <ul class="element">
+        <p for="law-info" class="title-list">Юридическая документация:</p>
+        <li>
+          <a href="#">Правила пользования</a>
+        </li>
+        <li>
+          <a href="#">Политика конфиденциальности</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+{% endblock %}

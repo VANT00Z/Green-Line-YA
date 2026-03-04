@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="keywords" content="переработка, переробатываемый мусор, мусор">
+    <meta name="description" content="{% block meta_description %}Логистический сервис по переработке мусора{% endblock %}">
+    <meta name="author" content="huh">
+    <title>{% block title %}GreenLine{% endblock %}</title>
+    {% block extra_css %}{% endblock %}
+    <link rel="icon" href="{% static 'imgs/icons/Logo2.png' %}">
+</head>
+<body>
+    {% block content %}{% endblock %}
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Media */
+
+/* laptop (900 px) */
+@media only screen and (min-width: 900px) {
+
+    /* Текст */
+    .texts {
+        font-size: 26px;
+    }
+
+    .texts p {
+        width: 850px;
+        height: auto;
+    }
+
+    .text1 {
+        padding: 5%;
+    }
+
+    .text2 {
+        padding: 10px 0 0 30%;
+    }
+
+    nav {
+        display: flex;
+        font-size: 16px;
+        padding: 20px 20px;
+    }
+
+    .element {
+        padding: 50px;
+    }
+}
+
+/* pad (600 - 900 px) */
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+    .texts {
+        font-size: 16px;
+        text-align: justify;
+    }
+
+    .texts p {
+        width: 500px;
+        height: auto;
+    }
+
+    .text1 {
+        padding: 10%;
+    }
+
+    .text2 {
+        padding: 0 20%;
+    }
+
+    nav {
+        display: flex;
+        font-size: 14px;
+    }
+
+    nav ul p {
+        padding-bottom: 10%;
+        text-align: center;
+    }
+
+    nav ul li {
+        text-align: center;
+        list-style: none;
+        padding-bottom: 10px;
+    }
+
+    .element {
+        padding: 50px;
+    }
+}
+
+/* phone (660 px) */
+@media only screen and (max-width: 660px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .texts {
+        padding: 20px;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+    }
+
+    nav ul {
+        list-style: none
+    }
+
+    .element {
+        padding: 10px 20px;
+        text-align: center;
+    }
+}
+
+body {
+    display: block;
+    margin-top: 0;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    height: 100%;
+    width: 100%;
+}
+
+/* Logo */
+.logo-name {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    align-content: flex-start;
+}
+
+.logo {
+    font-size: 34px;
+    font-weight: 900;
+    color: rgba(0, 128, 0, 1);
+    text-shadow: 4px 4px 7px gray;
+}
+
+.logo:hover {
+    transform: translateY(-1px);
+    box-shadow: rgba(0, 0, 0, 0.15);
+}
+
+.title-page {
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.texts {
+    font-weight: 600;
+    height: auto;
+    cursor: default;
+    text-align: justify;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+/* other */
+
+nav {
+    font-weight: 800;
+    animation: fadeIn 1.2s ease-in-out;
+    cursor: default;
+}
+
+.element p {
+    right: 100px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
