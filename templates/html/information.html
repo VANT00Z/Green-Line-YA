@@ -1,18 +1,17 @@
 {% extends 'base.html' %}
-{% load static %}
 
 {% block title %}
   GreenLine - Информация
 {% endblock %}
 
 {% block extra_css %}
-  <link rel="stylesheet" href="{% static 'css/information.css' %}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/information.css') }}" />
 {% endblock %}
 
 {% block content %}
   <div class="container">
     <header>
-      <a href="{% url 'html:index' %}" class="logo">GreenLine</a>
+      <a href="{{ url_for('main') }}" class="logo">GreenLine</a>
       <p>Информация</p>
     </header>
     <ul class="content">
@@ -31,37 +30,37 @@
           <li class="type">
             <ul>
               <li>
-                <img src="{% static 'imgs/trash-types/1-pet.png' %}" alt="PET" />
+                <img src="{{ url_for('static', filename='imgs/trash-types/1-pet.png') }}" alt="PET" />
                 <p>Бутылки из-под воды, газированных напитков, сока, молока</p>
                 <p class="res"></p>
               </li>
               <li>
-                <img src="{% static 'imgs/trash-types/2-hdpe.png' %}" alt="HDPE" />
+                <img src="{{ url_for('static', filename='imgs/trash-types/2-hdpe.png') }}" alt="HDPE" />
                 <p>Упаковки от шампуня, геля для душа, моющих средств</p>
                 <p class="res"></p>
               </li>
               <li>
-                <img src="{% static 'imgs/trash-types/3-pvc.png' %}" alt="PVC" />
+                <img src="{{ url_for('static', filename='imgs/trash-types/3-pvc.png') }}" alt="PVC" />
                 <p>Контейнеры и пленка для пищевых продуктов</p>
                 <p class="res"></p>
               </li>
               <li>
-                <img src="{% static 'imgs/trash-types/4-idpe.jpg' %}" alt="IDPE" />
+                <img src="{{ url_for('static', filename='imgs/trash-types/4-idpe.jpg') }}" alt="IDPE" />
                 <p>Пластиковые пакеты, многоразовые сумки, бутылки от моющих средств</p>
                 <p class="res"></p>
               </li>
               <li>
-                <img src="{% static 'imgs/trash-types/5-pp.png' %}" alt="PP" />
+                <img src="{{ url_for('static', filename='imgs/trash-types/5-pp.png') }}" alt="PP" />
                 <p>Контейнеры для пищевых продуктов, многоразовая пластиковая посуда, лотки в холодильниках</p>
                 <p class="nonres"></p>
               </li>
               <li>
-                <img src="{% static 'imgs/trash-types/6-ps.jpg' %}" alt="PS" />
+                <img src="{{ url_for('static', filename='imgs/trash-types/6-ps.jpg') }}" alt="PS" />
                 <p>Одноразовая посуда, стаканчики из-под йогуртов, упаковки для яиц</p>
                 <p class="res"></p>
               </li>
               <li>
-                <img src="{% static 'imgs/trash-types/7-other.jpg' %}" alt="OTHER" />
+                <img src="{{ url_for('static', filename='imgs/trash-types/7-other.jpg') }}" alt="OTHER" />
                 <p>Поликорбонат, полиамид, биопластики и многослойная упаковка</p>
                 <p class="nonres"></p>
               </li>
@@ -91,22 +90,22 @@
             <h2>Стекло</h2>
             <ul>
               <li>
-                <img src="{% static 'imgs/glass-types/clear_glass.jpg' %}" alt="Стеклотара" />
+                <img src="{{ url_for('static', filename='imgs/glass-types/clear_glass.jpg') }}" alt="Стеклотара" />
                 <h3>Стеклотара</h3>
                 <p>Банки, бутылки, флаконы из-под напитков</p>
               </li>
               <li>
-                <img src="{% static 'imgs/glass-types/window_glass.jpg' %}" alt="Листовое стекло" />
+                <img src="{{ url_for('static', filename='imgs/glass-types/window_glass.jpg') }}" alt="Листовое стекло" />
                 <h3>Листовое стекло</h3>
                 <p>Оконное, строительное стекла</p>
               </li>
               <li>
-                <img src="{% static 'imgs/glass-types/glass_parts.avif' %}" alt="Стеклобой" />
+                <img src="{{ url_for('static', filename='imgs/glass-types/glass_parts.avif') }}" alt="Стеклобой" />
                 <h3>Стеклобой</h3>
                 <p>Осколки всех перечисленных видов, разделяються на два вида до 50 мм и до 2 кг</p>
               </li>
               <li>
-                <img src="{% static 'imgs/glass-types/glass.jpg' %}" alt="Посуда" />
+                <img src="{{ url_for('static', filename='imgs/glass-types/glass.jpg') }}" alt="Посуда" />
                 <h3>Посуда</h3>
                 <p>Тарелки, чашки, кружки и тому подобное</p>
               </li>
@@ -117,53 +116,53 @@
             <ul>
               <h3>Черный металл</h3>
               <li>
-                <img src="{% static 'imgs/metal-types/armature.jpg' %}" alt="Стальной лом" />
+                <img src="{{ url_for('static', filename='imgs/metal-types/armature.jpg') }}" alt="Стальной лом" />
                 <h3>Стальной лом</h3>
                 <p>Трубы, уголки, швеллеры, балки, арматура, листовой металл</p>
               </li>
               <li>
-                <img src="{% static 'imgs/metal-types/plumbing.jpg' %}" alt="Чугунный лом" />
+                <img src="{{ url_for('static', filename='imgs/metal-types/plumbing.jpg') }}" alt="Чугунный лом" />
                 <h3>Чугунный лом</h3>
                 <p>Сантехника, радиаторы, промышленные детали, стружка</p>
               </li>
               <li>
-                <img src="{% static 'imgs/metal-types/noncor-metal.jpeg' %}" alt="Нержавеющая сталь" />
+                <img src="{{ url_for('static', filename='imgs/metal-types/noncor-metal.jpeg') }}" alt="Нержавеющая сталь" />
                 <h3>Нержавеющая сталь</h3>
                 <p>Отходы с содержанием никеля (более 10 процентов)</p>
               </li>
               <li>
-                <img src="{% static 'imgs/metal-types/metal-parts.jpg' %}" alt="Стружка" />
+                <img src="{{ url_for('static', filename='imgs/metal-types/metal-parts.jpg') }}" alt="Стружка" />
                 <h3>Стружка</h3>
                 <p>Стальная или чугунная</p>
               </li>
               <h3>Цветной металл</h3>
               <li>
-                <img src="{% static 'imgs/metal-types/copper.jpg' %}" alt="Медь" />
+                <img src="{{ url_for('static', filename='imgs/metal-types/copper.jpg') }}" alt="Медь" />
                 <h3>Медь</h3>
                 <p>Кабели, электропроводка</p>
               </li>
               <li>
-                <img src="{% static 'imgs/metal-types/aluminium.jpg' %}" alt="Алюминий" />
+                <img src="{{ url_for('static', filename='imgs/metal-types/aluminium.jpg') }}" alt="Алюминий" />
                 <h3>Алюминий</h3>
                 <p>Профиль, банки, электропроводка</p>
               </li>
               <li>
-                <img src="{% static 'imgs/metal-types/brass.png' %}" alt="Латунь" />
+                <img src="{{ url_for('static', filename='imgs/metal-types/brass.png') }}" alt="Латунь" />
                 <h3>Латунь</h3>
                 <p>Сплав меди с цинком (радиаторы, сантехнические изделия, стружка)</p>
               </li>
               <li>
-                <img src="{% static 'imgs/metal-types/bronze.jpg' %}" alt="Бронза" />
+                <img src="{{ url_for('static', filename='imgs/metal-types/bronze.jpg') }}" alt="Бронза" />
                 <h3>Бронза</h3>
                 <p>Сплав меди с оловом, изделия, стружка</p>
               </li>
               <li>
-                <img src="{% static 'imgs/metal-types/lead.png' %}" alt="Свинец" />
+                <img src="{{ url_for('static', filename='imgs/metal-types/lead.png') }}" alt="Свинец" />
                 <h3>Свинец</h3>
                 <p>Кабель, переплав, аккумуляторы</p>
               </li>
               <li>
-                <img src="{% static 'imgs/metal-types/titan.png' %}" alt="Титан/Магний" />
+                <img src="{{ url_for('static', filename='imgs/metal-types/titan.png') }}" alt="Титан/Магний" />
                 <h3>Титан/Магний</h3>
                 <p>Технические детали</p>
               </li>
@@ -198,17 +197,17 @@
             <h2>Остальное</h2>
             <ul>
               <li>
-                <img src="{% static 'imgs/other-trash-imgs/wood.avif' %}" alt="Древесина" />
+                <img src="{{ url_for('static', filename='imgs/other-trash-imgs/wood.avif') }}" alt="Древесина" />
                 <h3>Древесина</h3>
                 <p>Стружка, опилки, тара и тп</p>
               </li>
               <li>
-                <img src="{% static 'imgs/other-trash-imgs/textile.avif' %}" alt="Текстиль" />
+                <img src="{{ url_for('static', filename='imgs/other-trash-imgs/textile.avif') }}" alt="Текстиль" />
                 <h3>Текстиль</h3>
                 <p>Ткани, одежда, обувь и тп</p>
               </li>
               <li>
-                <img src="{% static 'imgs/other-trash-imgs/tetra-pak.jpg  ' %}" alt="Тетра-пак" />
+                <img src="{{ url_for('static', filename='imgs/other-trash-imgs/tetra-pak.jpg  ') }}" alt="Тетра-пак" />
                 <h3>Тетра-пак</h3>
                 <p>Многослойные (сложные) упаковки, материалы</p>
               </li>

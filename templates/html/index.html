@@ -14,10 +14,10 @@
       <img src="{{ url_for('static', filename='imgs/forest.jpg') }}" alt="Лес" />
     </div>
     <div class="content">
+      <header>
+        <a href="{{ url_for('main') }}" class="logo">GreenLine</a>
+      </header>
       <div class="upper">
-        <header>
-          <a href="{{ url_for('index') }}" class="logo">GreenLine</a>
-        </header>
         <div class="buttons">
           <a id="order-button" href="#" name="delivery_button">доставка</a>
           <a id="contact-button" href="{{ url_for('contacts') }}">контакты</a>
@@ -30,44 +30,12 @@
           <h2 class="text">На молодёжный проект города Москва. Этот сайт был создан для упрощения процесса сдачи мусора на переработку. Здесь вы можете создать заявку на отправление ваших переробатываемых материалов. Удобная логистика, быстрая доставка, приветливые работники - все это про наш сайт.</h2>
         </div>
         <div class="border-ex-inf">
-          <a class="ex-info" href="{{ url_for('ex-info') }}">Подробнее о проекте</a>
+          <a class="ex-info" href="{{ url_for('ex_info') }}">Подробнее о проекте</a>
         </div>
       </div>
       <div class="ellipse"></div>
     </div>
   </div>
-  <div id="register-popup" class="register-popup">
-    <div class="register-popup-container">
-      <div class="register-popup-body">
-        <p>Регистрация</p>
-        <form method="post" action="{% url 'main:register' %}" class="reg-popup-form">
-          {% csrf_token %}
-          <input name="register-name" type="text" placeholder="Имя" />
-          <input name="register-surname" type="text" placeholder="Фамилия" />
-          <input name="register-email" type="email" placeholder="Почта" />
-          <input name="register-password" type="text" placeholder="Пароль" />
-          <input name="register-rep-password" type="text" placeholder="Повтор пароля" />
-          <button type="submit">Зарегистрироваться</button>
-        </form>
-        <a id="change-button" class="reg-change" href="#">Есть аккаунт?</a>
-        <a class="close-popup" href="#">Закрыть</a>
-      </div>
-    </div>
-  </div>
-  <div class="auth-popup">
-    <div class="auth-popup-container">
-      <div class="auth-popup-body">
-        <p>Авторизация</p>
-        <form method="post" action="auth" class="auth-popup-form">
-          {% csrf_token %}
-          <input name="auth-mail" type="email" placeholder="Почта" />
-          <input name="auth-password" type="password" placeholder="Пароль" />
-          <button name="auth-button" type="submit">Авторизоваться</button>
-        </form>
-        <a id="change-button" class="reg-change" href="#">Нет аккаунта?</a>
-        <a class="close-popup" href="#">Закрыть</a>
-      </div>
-    </div>
-  </div>
-  <script src="{% static 'js/login_popup.js' %}"></script>
+
+  <script src="{{ url_for('static', filename='js/login_popup.js') }}"></script>
 {% endblock %}
