@@ -16,12 +16,12 @@
     <div class="content">
       <div class="upper">
         <header>
-          <a href="{% url 'html:index' %}" class="logo">GreenLine</a>
+          <a href="{{ url_for('index') }}" class="logo">GreenLine</a>
         </header>
         <div class="buttons">
           <a id="order-button" href="#" name="delivery_button">доставка</a>
-          <a id="contact-button" href="{% url 'main:contacts' %}">контакты</a>
-          <a id="statistic-button" href="{% url 'main:information' %}">информация</a>
+          <a id="contact-button" href="{{ url_for('contacts') }}">контакты</a>
+          <a id="statistic-button" href="{{ url_for('info') }}">информация</a>
         </div>
       </div>
       <div class="other">
@@ -30,7 +30,7 @@
           <h2 class="text">На молодёжный проект города Москва. Этот сайт был создан для упрощения процесса сдачи мусора на переработку. Здесь вы можете создать заявку на отправление ваших переробатываемых материалов. Удобная логистика, быстрая доставка, приветливые работники - все это про наш сайт.</h2>
         </div>
         <div class="border-ex-inf">
-          <a class="ex-info" href="{% url 'main:ex_info' %}">Подробнее о проекте</a>
+          <a class="ex-info" href="{{ url_for('ex-info') }}">Подробнее о проекте</a>
         </div>
       </div>
       <div class="ellipse"></div>

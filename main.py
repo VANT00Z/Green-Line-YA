@@ -16,8 +16,8 @@ def delivery():
     return render_template('html/delivery.html')
 
 
-@app.route('/info')
-def info():
+@app.route('/ex-info')
+def ex_info():
     return render_template('html/ex_info.html')
 
 
@@ -26,5 +26,10 @@ def contacts():
     return render_template('html/contacts.html')
 
 
+@app.route('/info')
+def info():
+    return render_template('html/information.html')
+
+
 if __name__ == "__main__":
-    app.run(port=8000)
+    app.run(port=8000, debug=True)
