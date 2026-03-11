@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load static %}
 
 {% block title %}
   Контакты - GreenLine
@@ -9,14 +8,14 @@
 {% endblock %}
 
 {% block extra_css %}
-  <link rel="stylesheet" href="{% static 'css/contacts.css' %}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/contacts.css') }}" />
 {% endblock %}
 
 {% block content %}
   <div class="container">
     <div class="content">
       <div class="logo-name">
-        <a href="{% url 'html:index' %}" class="logo">GreenLine</a>
+        <a href="{{ url_for('main') }}" class="logo">GreenLine</a>
         <label class="title-name">Контакты</label>
       </div>
       <p class="slogan">Сделаем планету чище вместе!</p>
@@ -36,7 +35,7 @@
       </div>
     </div>
     <div class="sidebar">
-      <img src="{% static 'imgs/forest1.png' %}" class="image-forest" />
+      <img src="{{ url_for('static', filename='imgs/forest1.png') }}" class="image-forest" />
     </div>
   </div>
   <div class="extra-cont">
