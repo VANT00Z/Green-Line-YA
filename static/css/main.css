@@ -8,7 +8,6 @@
 /* Base */
 body {
   display: flex;
-  /* margin-top: 0; */
   font-family: "Montserrat";
   font-optical-sizing: auto;
   font-style: normal;
@@ -188,7 +187,6 @@ a {
   color: rgba(0, 128, 0, 1);
 }
 
-/* Исправить */
 .logo:hover {
   transform: translateY(-1px);
   box-shadow: rgba(0, 0, 0, 0.15);

@@ -10,7 +10,6 @@
 /* laptop (900 px) */
 @media only screen and (min-width: 900px) {
 
-    /* Текст */
     .texts {
         font-size: 26px;
     }
@@ -113,6 +112,13 @@ body {
     font-weight: 400;
     font-style: normal;
     color: black;
+}
+
+header {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
 }
 
 a {
