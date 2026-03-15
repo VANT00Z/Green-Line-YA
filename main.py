@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import render_template
+from back.forms.user_form import RegisterForm, LoginForm
 
 
 app = Flask(__name__)
@@ -31,12 +32,16 @@ def contacts():
 def info():
     return render_template('html/information.html')
 
-def register(request):
-    if request.method == 'POST':
-        return
-    else:
-        return
+
+@app.route('/register', methods=['POST'])
+def register():
+    form = RegisterForm()
+
+
+@app.route('/auth',  methods=['POST'])
+def auth():
+    form = LoginForm()
 
 
 if __name__ == "__main__":
-    app.run(port=8000)
+    app.run(port=8000, debug=True)
