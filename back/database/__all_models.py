@@ -1,2 +1,2 @@
-from backend.database.models import users_model
-from backend.database.models import news_model
+from back.forms import user_form
+from back.forms import delivery_form

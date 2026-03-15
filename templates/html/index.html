@@ -19,7 +19,7 @@
       </header>
       <div class="upper">
         <div class="buttons">
-          <a id="order-button" href="{{ url_for('login') }}" name="delivery_button">доставка</a>
+          <a id="order-button" href="{{ url_for('register') }}" name="delivery_button">доставка</a>
           <a id="contact-button" href="{{ url_for('contacts') }}">контакты</a>
           <a id="statistic-button" href="{{ url_for('info') }}">информация</a>
         </div>
@@ -36,12 +36,12 @@
       <div class="ellipse"></div>
     </div>
   </div>
-  <div id="register-popup" class="register-popup">
+  {#
+    <div id="register-popup" class="register-popup">
     <div class="register-popup-container">
       <div class="register-popup-body">
         <p>Регистрация</p>
         <form method="post" action="{{ url_for('register') }}" class="reg-popup-form">
-          {% csrf_token %}
           <input name="register-name" type="text" placeholder="Имя" />
           <input name="register-surname" type="text" placeholder="Фамилия" />
           <input name="register-email" type="email" placeholder="Почта" />
@@ -59,7 +59,6 @@
       <div class="auth-popup-body">
         <p>Авторизация</p>
         <form method="post" action="auth" class="auth-popup-form">
-          {% csrf_token %}
           <input name="auth-mail" type="email" placeholder="Почта" />
           <input name="auth-password" type="password" placeholder="Пароль" />
           <button name="auth-button" type="submit">Авторизоваться</button>
@@ -68,7 +67,8 @@
         <a class="close-popup" href="#">Закрыть</a>
       </div>
     </div>
-  </div>
+  </div> 
+#}
 
   <script src="{{ url_for('static', filename='js/login_popup.js') }}"></script>
 {% endblock %}
