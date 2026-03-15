@@ -19,7 +19,7 @@
       </header>
       <div class="upper">
         <div class="buttons">
-          <a id="order-button" href="#" name="delivery_button">доставка</a>
+          <a id="order-button" href="{{ url_for('login') }}" name="delivery_button">доставка</a>
           <a id="contact-button" href="{{ url_for('contacts') }}">контакты</a>
           <a id="statistic-button" href="{{ url_for('info') }}">информация</a>
         </div>

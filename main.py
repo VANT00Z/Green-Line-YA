@@ -3,6 +3,7 @@ from flask import render_template
 
 
 app = Flask(__file__)
+app.config['SECRET_KEY'] = 'GrEEn_L1ne_S4creTT_K7Y'
 
 
 @app.route('/')
