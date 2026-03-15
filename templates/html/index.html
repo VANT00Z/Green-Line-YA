@@ -36,6 +36,39 @@
       <div class="ellipse"></div>
     </div>
   </div>
+  <div id="register-popup" class="register-popup">
+    <div class="register-popup-container">
+      <div class="register-popup-body">
+        <p>Регистрация</p>
+        <form method="post" action="{{ url_for('register') }}" class="reg-popup-form">
+          {% csrf_token %}
+          <input name="register-name" type="text" placeholder="Имя" />
+          <input name="register-surname" type="text" placeholder="Фамилия" />
+          <input name="register-email" type="email" placeholder="Почта" />
+          <input name="register-password" type="text" placeholder="Пароль" />
+          <input name="register-rep-password" type="text" placeholder="Повтор пароля" />
+          <button type="submit">Зарегистрироваться</button>
+        </form>
+        <a id="change-button" class="reg-change" href="#">Есть аккаунт?</a>
+        <a class="close-popup" href="#">Закрыть</a>
+      </div>
+    </div>
+  </div>
+  <div class="auth-popup">
+    <div class="auth-popup-container">
+      <div class="auth-popup-body">
+        <p>Авторизация</p>
+        <form method="post" action="auth" class="auth-popup-form">
+          {% csrf_token %}
+          <input name="auth-mail" type="email" placeholder="Почта" />
+          <input name="auth-password" type="password" placeholder="Пароль" />
+          <button name="auth-button" type="submit">Авторизоваться</button>
+        </form>
+        <a id="change-button" class="reg-change" href="#">Нет аккаунта?</a>
+        <a class="close-popup" href="#">Закрыть</a>
+      </div>
+    </div>
+  </div>
 
   <script src="{{ url_for('static', filename='js/login_popup.js') }}"></script>
 {% endblock %}

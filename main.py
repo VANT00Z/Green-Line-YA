@@ -2,7 +2,7 @@ from flask import Flask
 from flask import render_template
 
 
-app = Flask(__file__)
+app = Flask(__name__)
 app.config['SECRET_KEY'] = 'GrEEn_L1ne_S4creTT_K7Y'
 
 
@@ -30,6 +30,12 @@ def contacts():
 @app.route('/info')
 def info():
     return render_template('html/information.html')
+
+def register(request):
+    if request.method == 'POST':
+        return
+    else:
+        return
 
 
 if __name__ == "__main__":
