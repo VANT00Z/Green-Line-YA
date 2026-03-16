@@ -7,5 +7,4 @@ class DeliveryForm(FlaskForm):
     date = DateTimeField('Дата и время', validators=[DataRequired()])
     weight = IntegerField('Вес', validators=[Optional()])
     description = TextAreaField('Описание', validators=[])
-    active = BooleanField('Активный заказ')
     submit = SubmitField('Создать заказ')

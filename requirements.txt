@@ -1,3 +1,4 @@
 Flask
 Flask-wtf
+flask_login
 sqlalchemy
