@@ -1,5 +1,7 @@
 from flask import Flask
 from flask import render_template
+from back.data.models.users_model import UserModel
+from back.data.models.order_model import OrderModel
 from back.forms.user_form import RegisterForm, LoginForm
 from back.data import db_session
 
@@ -11,6 +13,12 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'GrEEn_L1ne_S4creTT_K7Y'
 app_manager = LoginManager()
 app_manager.init_app(app)
+
+
+@app_manager.user_loader
+def load_user(user_id):
+    session = db_session.create_session()
+    return session.get(UserModel, user_id)
 
 
 @app.route('/')
@@ -50,8 +58,8 @@ def auth():
     form = LoginForm()
 
 
-def main(): # Запуск таблицы
-    db_session.global_init('database/users.sqlite')
+def main():
+    db_session.global_init('db.sqlite')
     app.run(port=8000)
 
 

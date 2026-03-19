@@ -7,13 +7,16 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 class UserModel(SqlAlchemyBase, UserMixin):
     __tablename__ = 'users'
-    
-    id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True, autoincrement=True)
+
+    id = sqlalchemy.Column(
+        sqlalchemy.Integer, primary_key=True, autoincrement=True)
     name = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     surname = sqlalchemy.Column(sqlalchemy.String, nullable=True)
-    email = sqlalchemy.Column(sqlalchemy.Integer, index=True, unique=True, nullable=True)
+    email = sqlalchemy.Column(
+        sqlalchemy.Integer, index=True, unique=True, nullable=True)
     hashed_password = sqlalchemy.Column(sqlalchemy.String, nullable=True)
-    cr_date = sqlalchemy.Column(sqlalchemy.DateTime, default=datetime.datetime.now)
+    cr_date = sqlalchemy.Column(
+        sqlalchemy.DateTime, default=datetime.datetime.now)
 
     def set_password(self, password):
         self.hashed_password = generate_password_hash(password)
