@@ -1,6 +1,6 @@
 import datetime
 import sqlalchemy
-from db_session import SqlAlchemyBase
+from back.data.db_session import SqlAlchemyBase
 
 class OrderModel(SqlAlchemyBase):
     __tablename__ = 'orders'
