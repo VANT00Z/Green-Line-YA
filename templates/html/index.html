@@ -19,7 +19,7 @@
       </header>
       <div class="upper">
         <div class="buttons">
-          <a id="order-button" href="{{ url_for('register') }}" name="delivery_button">доставка</a>
+          <a id="order-button" href="#" name="delivery_button">доставка</a>
           <a id="contact-button" href="{{ url_for('contacts') }}">контакты</a>
           <a id="statistic-button" href="{{ url_for('info') }}">информация</a>
         </div>
@@ -36,7 +36,6 @@
       <div class="ellipse"></div>
     </div>
   </div>
-  {#
     <div id="register-popup" class="register-popup">
     <div class="register-popup-container">
       <div class="register-popup-body">
@@ -68,7 +67,6 @@
       </div>
     </div>
   </div> 
-#}
 
   <script src="{{ url_for('static', filename='js/login_popup.js') }}"></script>
 {% endblock %}
