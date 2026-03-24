@@ -7,7 +7,7 @@ class RegisterForm(FlaskForm):
     " Форма регистрации "
     name = StringField('Имя', validators=[
                        DataRequired(), Length(min=3, max=30)])
-    surname = StringField('Фаимилия', validators=[
+    surname = StringField('Фамилия', validators=[
                           DataRequired(), Length(min=3, max=30)])
     mail = EmailField('Почта', validators=[DataRequired(), Email()])
     password = PasswordField('Пароль', validators=[

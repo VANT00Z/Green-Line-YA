@@ -44,6 +44,7 @@ def login():
             UserModel.email == form.mail.data).first()
         if user and user.check_password(form.password.data):
             return redirect("/delivery")
+        print('Неправильный пароль или логин')
         return redirect("/")    # Переадресовка: неправильный пароль или логин
     return redirect("/")
 
@@ -53,9 +54,11 @@ def register():
     form = RegisterForm()
     if form.validate_on_submit():
         if form.password.data != form.ex_password.data:
+            print('Неверный пароль')
             return redirect('/index')   # Переадресовка: повтор пароля неверный
         session = db_session.create_session()
         if session.query(UserModel).filter(UserModel.email == form.mail.data).first():
+            print('Пользователь уже существует')
             return ("/index")   # Переадресовка: Пользователь уже есть
         user = UserModel(
             name=form.name.data,
