@@ -13,7 +13,7 @@ class UserModel(SqlAlchemyBase, UserMixin):
     name = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     surname = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     email = sqlalchemy.Column(
-        sqlalchemy.Integer, index=True, unique=True, nullable=True)
+        sqlalchemy.String, index=True, unique=True, nullable=True)
     hashed_password = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     cr_date = sqlalchemy.Column(
         sqlalchemy.DateTime, default=datetime.datetime.now)

@@ -57,26 +57,27 @@ a {
   }
 
   .content {
-    flex: 1;
     margin-left: 4%;
     margin-top: 2%;
+    flex: 1;
   }
 
   .buttons {
-    font-size: 24px;
-    font-weight: 700;
-    right: 20px;
     padding-top: 10px;
+    font-weight: 700;
+    font-size: 24px;
+    position: fixed;
+    right: 20px;
   }
 
   .ellipse {
+    opacity: 60%;
     width: 843px;
     height: 619px;
-    background-color: rgba(0, 128, 0, 1);
     border-radius: 50%;
-    opacity: 60%;
     margin-left: 35.5%;
     position: absolute;
+    background-color: rgba(0, 128, 0, 1);
   }
 
   .welcome {
@@ -112,8 +113,7 @@ a {
     line-height: 50px;
     font-weight: 700;
     font-size: 24px;
-    display: flex;
-    flex-direction: column;
+    width: 100%;
   }
 
   .button {
@@ -190,9 +190,6 @@ a {
 }
 
 /* Buttons style */
-.buttons {
-  position: fixed;
-}
 
 .buttons a {
   color: #333;
