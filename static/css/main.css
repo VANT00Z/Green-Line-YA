@@ -65,8 +65,7 @@ a {
   .buttons {
     font-size: 24px;
     font-weight: 700;
-    position: absolute;
-    padding-left: 23%;
+    right: 20px;
     padding-top: 10px;
   }
 
@@ -113,7 +112,6 @@ a {
     line-height: 50px;
     font-weight: 700;
     font-size: 24px;
-    margin: 0.5% auto auto 68%;
     display: flex;
     flex-direction: column;
   }
@@ -162,7 +160,6 @@ a {
 
   .buttons {
     font-weight: 600;
-    margin-top: 40px;
     text-align: center;
     padding: 1px 4px;
     font-size: 14px;
@@ -193,6 +190,10 @@ a {
 }
 
 /* Buttons style */
+.buttons {
+  position: fixed;
+}
+
 .buttons a {
   color: #333;
   background-color: rgba(217, 217, 217, 1);
