@@ -8,12 +8,12 @@
 {% endblock %}
 
 {% block extra_css %}
-  <link rel="stylesheet" href="{% static 'css/delivery.css' %}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/delivery.css') }}" />
 {% endblock %}
 
 {% block content %}
   <header>
-    <a href="{{ url_for('main') }}">GreenLine</a>
+    <a href="{{ url_for('index') }}">GreenLine</a>
     <p class="title-page">Доставка</p>
   </header>
 
@@ -31,7 +31,6 @@
       <div class="popup-body" style="max-width: 500px;">
         <p>Заказать</p>
         <form action="order" method="post">
-          {% csrf_token %}
           <input name="delivery-adress" type="text" placeholder="Адрес" />
           <input name="delivery-date" type="datetime-local" />
           <input name="delivery-weight" type="number" placeholder="Приблизительный вес" />
@@ -59,5 +58,5 @@
     </div>
   </div>
 
-  <script src="{% static 'js/delivery_popups.js' %}"></script>
+  <script src="{{ url_for('static', filename='js/delivery_popups.js') }}"></script>
 {% endblock %}

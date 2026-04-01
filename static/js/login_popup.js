@@ -6,6 +6,32 @@ document.addEventListener('DOMContentLoaded', function () {
     const closeButton = document.querySelector('.close-popup');
     let isReg = true
 
+    // Функция для показа уведомлений (минималистичная)
+    function showNotification(message, isError = false) {
+        // Удаляем старые уведомления
+        const oldNotif = document.querySelector('.custom-notification');
+        if (oldNotif) oldNotif.remove();
+
+        const notification = document.createElement('div');
+        notification.className = 'custom-notification';
+        notification.textContent = message;
+        notification.style.position = 'fixed';
+        notification.style.top = '20px';
+        notification.style.right = '20px';
+        notification.style.padding = '10px 20px';
+        notification.style.backgroundColor = isError ? '#ff4444' : '#4CAF50';
+        notification.style.color = 'white';
+        notification.style.borderRadius = '5px';
+        notification.style.zIndex = '10000';
+        notification.style.fontSize = '14px';
+
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+            notification.remove();
+        }, 3000);
+    }
+
     // open
     function openPopup() {
         registerPopup.style.display = 'block';
@@ -19,10 +45,138 @@ document.addEventListener('DOMContentLoaded', function () {
         authPopup.style.display = 'none';
     }
 
+    // Обработка регистрации
+    async function handleRegisterSubmit(event) {
+        event.preventDefault();
+
+        const form = event.target;
+        const name = form.querySelector('input[name="register-name"]').value;
+        const surname = form.querySelector('input[name="register-surname"]').value;
+        const email = form.querySelector('input[name="register-email"]').value;
+        const password = form.querySelector('input[name="register-password"]').value;
+        const repPassword = form.querySelector('input[name="register-rep-password"]').value;
+
+        // Валидация
+        if (!name || !surname || !email || !password || !repPassword) {
+            showNotification('Заполните все поля', true);
+            return;
+        }
+
+        if (password !== repPassword) {
+            showNotification('Пароли не совпадают', true);
+            return;
+        }
+
+        if (password.length < 6) {
+            showNotification('Пароль должен быть не менее 6 символов', true);
+            return;
+        }
+
+        try {
+            const response = await fetch('/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: name,
+                    surname: surname,
+                    email: email,
+                    password: password,
+                    rep_password: repPassword
+                })
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                showNotification(data.message);
+                setTimeout(() => {
+                    window.location.href = data.redirect;
+                }, 1000);
+            } else {
+                showNotification(data.message, true);
+            }
+        } catch (error) {
+            console.error('Ошибка:', error);
+            showNotification('Ошибка сервера', true);
+        }
+    }
+
+    // Обработка авторизации
+    async function handleAuthSubmit(event) {
+        event.preventDefault();
+
+        const form = event.target;
+        const email = form.querySelector('input[name="auth-mail"]').value;
+        const password = form.querySelector('input[name="auth-password"]').value;
+
+        if (!email || !password) {
+            showNotification('Заполните все поля', true);
+            return;
+        }
+
+        try {
+            const response = await fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: email,
+                    password: password
+                })
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                showNotification(data.message);
+                setTimeout(() => {
+                    window.location.href = data.redirect;
+                }, 1000);
+            } else {
+                showNotification(data.message, true);
+            }
+        } catch (error) {
+            console.error('Ошибка:', error);
+            showNotification('Ошибка сервера', true);
+        }
+    }
+
+    // Проверка авторизации
+    async function checkAuth() {
+        try {
+            const response = await fetch('/check_auth');
+            const data = await response.json();
+            return data.authenticated;
+        } catch (error) {
+            console.error('Ошибка:', error);
+            return false;
+        }
+    }
+
+    // Добавляем обработчики форм
+    const registerForm = document.querySelector('.reg-popup-form');
+    const authForm = document.querySelector('.auth-popup-form');
+
+    if (registerForm) {
+        registerForm.addEventListener('submit', handleRegisterSubmit);
+    }
+
+    if (authForm) {
+        authForm.addEventListener('submit', handleAuthSubmit);
+    }
+
     mainOrder.forEach(button => {
-        button.addEventListener('click', function (event) {
+        button.addEventListener('click', async function (event) {
             event.preventDefault();
-            openPopup();
+            const isAuth = await checkAuth();
+            if (isAuth) {
+                window.location.href = '/delivery';
+            } else {
+                openPopup();
+            }
         });
     });
 
