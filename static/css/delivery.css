@@ -27,9 +27,6 @@ header a {
     color: rgba(0, 128, 0, 1);
     text-shadow: 4px 4px 7px gray;
     margin-top: 0;
-}
-
-header a {
     transform: translateY(-1px);
     box-shadow: rgba(0, 0, 0, 0.15);
 }
@@ -39,7 +36,6 @@ header {
     display: flex;
     flex-direction: column;
     align-content: flex-start;
-    width: 200px;
 }
 
 header p {
