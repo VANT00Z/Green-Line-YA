@@ -6,11 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const closeButton = document.querySelector('.close-popup');
     let isReg = true
 
-    // Функция для показа уведомлений (минималистичная)
     function showNotification(message, isError = false) {
-        // Удаляем старые уведомления
-        const oldNotif = document.querySelector('.custom-notification');
-        if (oldNotif) oldNotif.remove();
 
         const notification = document.createElement('div');
         notification.className = 'custom-notification';
@@ -45,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
         authPopup.style.display = 'none';
     }
 
-    // Обработка регистрации
+    // Register check
     async function handleRegisterSubmit(event) {
         event.preventDefault();
 
@@ -56,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const password = form.querySelector('input[name="register-password"]').value;
         const repPassword = form.querySelector('input[name="register-rep-password"]').value;
 
-        // Валидация
+        // Valid
         if (!name || !surname || !email || !password || !repPassword) {
             showNotification('Заполните все поля', true);
             return;
@@ -103,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Обработка авторизации
+    // Auth check
     async function handleAuthSubmit(event) {
         event.preventDefault();
 
@@ -144,7 +140,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Проверка авторизации
     async function checkAuth() {
         try {
             const response = await fetch('/check_auth');
@@ -156,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Добавляем обработчики форм
+    // Form checker
     const registerForm = document.querySelector('.reg-popup-form');
     const authForm = document.querySelector('.auth-popup-form');
 
@@ -180,7 +175,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Закрытие popup при клике на затемненную область
     registerPopup.addEventListener('click', function (event) {
         if (event.target === registerPopup) {
             closePopup();
@@ -216,4 +210,12 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+    const openButton = document.querySelector('.open-butttons')
+    // const 
+
+    openButton.addEventListener('click', () => {
+        requestAnimationFrame()
+    })
+
+    function animate() { }
 });

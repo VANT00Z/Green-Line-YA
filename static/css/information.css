@@ -5,6 +5,10 @@
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 p {
     cursor: default;
 }
@@ -140,6 +144,21 @@ h1 {
     color: brown;
 }
 
+.scroll-up {
+    display: none;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    text-decoration: none;
+    color: white;
+    background-color: green;
+    font-size: 30px;
+    font-weight: 800;
+    padding: 7px 15px;
+    border-radius: 30px;
+    animation: fadeIn 1s;
+}
+
 @keyframes fadeIn {
     from {
         transform: translateY(20px);
@@ -149,6 +168,18 @@ h1 {
     to {
         transform: translateY(0);
         opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    to {
+        opacity: 0;
+        visibility: hidden;
     }
 }
 
