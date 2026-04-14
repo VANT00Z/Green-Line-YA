@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const mainOrder = document.querySelectorAll('#order-button');
+    const mainOrder = document.querySelectorAll('#orderButton');
     const registerPopup = document.querySelector('.register-popup');
     const authPopup = document.querySelector('.auth-popup');
     const changeButtons = document.querySelectorAll('#change-button');
@@ -210,12 +210,12 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
-    const openButton = document.querySelector('.open-butttons')
+    // const openButton = document.querySelector('.open-buttons')
     // const 
 
-    openButton.addEventListener('click', () => {
-        requestAnimationFrame()
-    })
+    // openButton.addEventListener('click', () => {
+    //     requestAnimationFrame()
+    // })
 
-    function animate() { }
+    // function animate() { }
 });
