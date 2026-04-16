@@ -18,11 +18,15 @@
         <a href="{{ url_for('index') }}" class="logo">GreenLine</a>
       </header>
       <div class="upper">
-        <a href="#" id="openButtons" class="open-buttons">...</a>
+        <div class="burger" id="burger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
         <div class="buttons">
           <a id="orderButton" href="#" name="delivery_button">доставка</a>
           <a id="contactButton" href="{{ url_for('contacts') }}">контакты</a>
-          <a id="statisticButton" href="{{ url_for('info') }}">информация</a>
+          <a id="infoButton" href="{{ url_for('info') }}">информация</a>
         </div>
       </div>
       <div class="other">

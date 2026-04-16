@@ -198,11 +198,31 @@ a {
   letter-spacing: 3px;
   border-radius: 8px;
   padding: 3px 7px;
+  /* display: none; */
 }
 
 .buttons a:hover {
   animation: buttonsHover 0.2s;
   animation-fill-mode: forwards;
+}
+
+.burger {
+  position: fixed;
+  right: 20px;
+  background-color: rgba(200, 200, 200, 1);
+  padding: 6px 10px;
+  border-radius: 16px;
+  display: none;
+}
+
+.burger span {
+  display: block;
+  width: 30px;
+  height: 5px;
+  background-color: black;
+  margin: 5px 0;
+  transition: 0.3s;
+  border-radius: 16px;
 }
 
 @keyframes buttonsHover {
@@ -260,10 +280,6 @@ a {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.upper {
-  display: absolute;
 }
 
 /* Register popup style */
