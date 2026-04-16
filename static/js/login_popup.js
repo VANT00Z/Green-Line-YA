@@ -1,9 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const mainOrder = document.querySelectorAll('#orderButton');
+    const orderButton = document.querySelectorAll('#orderButton');
     const registerPopup = document.querySelector('.register-popup');
     const authPopup = document.querySelector('.auth-popup');
     const changeButtons = document.querySelectorAll('#change-button');
     const closeButton = document.querySelector('.close-popup');
+    // Buttons n burger
+    const burgerButton = document.querySelectorAll('#burger');
+    const contactButton = document.querySelectorAll('#contactButton');
+    const infoButton = document.querySelectorAll('#infoButton');
+
     let isReg = true
 
     function showNotification(message, isError = false) {
@@ -163,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function () {
         authForm.addEventListener('submit', handleAuthSubmit);
     }
 
-    mainOrder.forEach(button => {
+    orderButton.forEach(button => {
         button.addEventListener('click', async function (event) {
             event.preventDefault();
             const isAuth = await checkAuth();
@@ -210,12 +215,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
-    // const openButton = document.querySelector('.open-buttons')
-    // const 
+    function openButtons() {
 
-    // openButton.addEventListener('click', () => {
-    //     requestAnimationFrame()
-    // })
-
-    // function animate() { }
+    }
 });
