@@ -1,8 +1,9 @@
 from flask import Flask
-from flask import render_template, redirect, request, flash, jsonify
+from flask import render_template, redirect, request, jsonify, json
 from back.data.models.users_model import UserModel
 from back.forms.user_form import RegisterForm, LoginForm
 from back.data import db_session
+import logging
 
 
 from flask_login import LoginManager
@@ -134,7 +135,9 @@ def delivery():
 
 @app.route('/ex-info')
 def ex_info():
-    return render_template('html/ex_info.html')
+    with open('static/json/info.json', 'r+', encoding='utf-8') as i:
+        info = json.load(i)
+    return render_template('html/ex_info.html', plastic=info['plastic'])
 
 
 @app.route('/contacts')

@@ -62,83 +62,115 @@
     ],
     "glass": [
         {
-            "image": "static/imgs/",
-            "title": "",
-            "description": ""
+            "image": "static/imgs/glass-types/clear_glass.jpg",
+            "title": "Стеклотара",
+            "description": "Банки, бутылки, флаконы из-под напитков"
+        },
+        {
+            "image": "static/imgs/glass-types/window_glass.jpg",
+            "title": "Листовое стекло",
+            "description": "Оконное, строительное стекла"
+        },
+        {
+            "image": "static/imgs/glass-types/glass_parts.avif",
+            "title": "Стеклобой",
+            "description": "Осколки всех перечисленных видов, разделяются на два вида до 50 мм и до 2 кг"
+        },
+        {
+            "image": "static/imgs/glass-types/glass.jpg",
+            "title": "Посуда",
+            "description": "Тарелки, чашки, кружки и тому подобное"
         }
     ],
     "metal": [
         {
-            "image": "static/imgs/",
-            "title": "",
-            "description": ""
+            "image": "static/imgs/metal-types/armature.jpg",
+            "title": "Стальной лом",
+            "description": "Трубы, уголки, швеллеры, балки, арматура, листовой металл"
         },
         {
-            "image": "static/imgs/",
-            "title": "",
-            "description": ""
+            "image": "static/imgs/metal-types/plumbing.jpg",
+            "title": "Чугунный лом",
+            "description": "Сантехника, радиаторы, промышленные детали, стружка"
         },
         {
-            "image": "static/imgs/",
-            "title": "",
-            "description": ""
+            "image": "static/imgs/metal-types/noncor-metal.jpeg",
+            "title": "Нержавеющая сталь",
+            "description": "Отходы с содержанием никеля (более 10 процентов)"
         },
         {
-            "image": "static/imgs/",
-            "title": "",
-            "description": ""
+            "image": "static/imgs/metal-types/metal-parts.jpg",
+            "title": "Стружка",
+            "description": "Стальная или чугунная"
         },
         {
-            "image": "static/imgs/",
-            "title": "",
-            "description": ""
+            "image": "static/imgs/metal-types/copper.jpg",
+            "title": "Медь",
+            "description": "Кабели, электропроводка"
         },
         {
-            "image": "static/imgs/",
-            "title": "",
-            "description": ""
+            "image": "static/imgs/metal-types/aluminium.jpg",
+            "title": "Алюминий",
+            "description": "Профиль, банки, электропроводка"
         },
         {
-            "image": "static/imgs/",
-            "title": "",
-            "description": ""
+            "image": "static/imgs/metal-types/brass.png",
+            "title": "Латунь",
+            "description": "Сплав меди с цинком (радиаторы, сантехнические изделия, стружка)"
         },
         {
-            "image": "static/imgs/",
-            "title": "",
-            "description": ""
+            "image": "static/imgs/metal-types/bronze.jpg",
+            "title": "Бронза",
+            "description": "Сплав меди с оловом, изделия, стружка"
         },
         {
-            "image": "static/imgs/",
-            "title": "",
-            "description": ""
+            "image": "static/imgs/metal-types/lead.png",
+            "title": "Свинец",
+            "description": "Кабель, переплав, аккумуляторы"
         },
         {
-            "image": "static/imgs/",
-            "title": "",
-            "description": ""
+            "image": "static/imgs/metal-types/titan.png",
+            "title": "Титан/Магний",
+            "description": "Технические детали"
         }
     ],
     "rubber": [
         {
             "image": "static/imgs/",
-            "title": "",
-            "description": ""
+            "title": "Легковые шины",
+            "description": "Шины для легкового транспорта. R13 - 19 и более"
+        },
+        {
+            "image": "static/imgs/",
+            "title": "Грузовые шины",
+            "description": "Шины для грузового транспорта: грузовики, газели и тп. R17 - 24"
+        },
+        {
+            "image": "static/imgs/",
+            "title": "Крупногабаритные шины",
+            "description": "Шины для сверхтяжелой карьерной, строительной техники. R8 - 24"
+        },
+        {
+            "image": "static/imgs/",
+            "title": "Цельнолитые шины",
+            "description": "Шины без содержания воздуха. Часто используются для спецтехники. R24 - 51 и более"
         }
     ],
     "other": [
         {
             "image": "static/imgs/",
-            "title": "",
-            "description": ""
-        }
-    ],
-    "links": [
+            "title": "Древесина",
+            "description": "Стружка, опилки, тара и тп"
+        },
         {
-            "title": {
-                "name": "",
-                "link": ""
-            }
+            "image": "static/imgs/",
+            "title": "Текстиль",
+            "description": "Ткани, одежда, обувь и тп"
+        },
+        {
+            "image": "static/imgs/",
+            "title": "Тетра-пак",
+            "description": "Многослойные (сложные) упаковки, материалы"
         }
     ]
 }

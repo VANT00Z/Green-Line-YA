@@ -28,43 +28,15 @@
         <ul class="types">
           <h2>Пластик</h2>
           <li class="type">
-            <ul>
-              <li>
-                <img src="{{ url_for('static', filename='imgs/trash-types/1-pet.png') }}" alt="PET" />
-                <p>Бутылки из-под воды, газированных напитков, сока, молока</p>
-                <p class="res"></p>
-              </li>
-              <li>
-                <img src="{{ url_for('static', filename='imgs/trash-types/2-hdpe.png') }}" alt="HDPE" />
-                <p>Упаковки от шампуня, геля для душа, моющих средств</p>
-                <p class="res"></p>
-              </li>
-              <li>
-                <img src="{{ url_for('static', filename='imgs/trash-types/3-pvc.png') }}" alt="PVC" />
-                <p>Контейнеры и пленка для пищевых продуктов</p>
-                <p class="res"></p>
-              </li>
-              <li>
-                <img src="{{ url_for('static', filename='imgs/trash-types/4-idpe.jpg') }}" alt="IDPE" />
-                <p>Пластиковые пакеты, многоразовые сумки, бутылки от моющих средств</p>
-                <p class="res"></p>
-              </li>
-              <li>
-                <img src="{{ url_for('static', filename='imgs/trash-types/5-pp.png') }}" alt="PP" />
-                <p>Контейнеры для пищевых продуктов, многоразовая пластиковая посуда, лотки в холодильниках</p>
-                <p class="nonres"></p>
-              </li>
-              <li>
-                <img src="{{ url_for('static', filename='imgs/trash-types/6-ps.jpg') }}" alt="PS" />
-                <p>Одноразовая посуда, стаканчики из-под йогуртов, упаковки для яиц</p>
-                <p class="res"></p>
-              </li>
-              <li>
-                <img src="{{ url_for('static', filename='imgs/trash-types/7-other.jpg') }}" alt="OTHER" />
-                <p>Поликорбонат, полиамид, биопластики и многослойная упаковка</p>
-                <p class="nonres"></p>
-              </li>
-            </ul>
+            {% for item in plastic %}
+              <ul>
+                <li>
+                  <img src="{{ item.image }}" alt="" />
+                  <p>{{ item.description }}</p>
+                  <p class="{{ item.other }}"></p>
+                </li>
+              </ul>
+            {% endfor %}
           </li>
           <li class="type">
             <h2>Макулатура</h2>
