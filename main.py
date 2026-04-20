@@ -135,9 +135,7 @@ def delivery():
 
 @app.route('/ex-info')
 def ex_info():
-    with open('static/json/info.json', 'r+', encoding='utf-8') as i:
-        info = json.load(i)
-    return render_template('html/ex_info.html', plastic=info['plastic'])
+    return render_template('html/ex_info.html')
 
 
 @app.route('/contacts')
@@ -147,7 +145,10 @@ def contacts():
 
 @app.route('/info')
 def info():
-    return render_template('html/information.html')
+    with open('static/json/info.json', 'rt', encoding='utf-8') as file:
+        info_list = json.loads(file.read())
+    print(info_list)
+    return render_template('html/information.html', info=info_list)
 
 
 def main():

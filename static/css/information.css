@@ -79,7 +79,7 @@ h1 {
 .types .type {
     padding: 10px 0;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: center;
 }
 
