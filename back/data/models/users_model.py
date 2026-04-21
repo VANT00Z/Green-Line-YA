@@ -3,6 +3,7 @@ import sqlalchemy
 from back.data.db_session import SqlAlchemyBase
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
+from sqlalchemy.orm import relationship
 
 
 class UserModel(SqlAlchemyBase, UserMixin):
@@ -17,6 +18,8 @@ class UserModel(SqlAlchemyBase, UserMixin):
     hashed_password = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     cr_date = sqlalchemy.Column(
         sqlalchemy.DateTime, default=datetime.datetime.now)
+    
+    orders = relationship('OrderModel', back_populates='user', cascade='all, delete-orphan')
 
     def set_password(self, password):
         self.hashed_password = generate_password_hash(password)
