@@ -76,8 +76,9 @@
     .text {
         position: fixed;
         margin-right: 20px;
+        padding: 0 60px;
         z-index: 10000;
-        width: 800px;
+        /* width: 800px; */
         bottom: 40vh;
         overflow-wrap: anywhere;
         animation: forwards fadeIn 1.2s;

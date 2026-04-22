@@ -4,60 +4,60 @@
             "image": "static/imgs/trash-types/1-pet.png",
             "title": "PET",
             "description": "Бутылки из-под воды, газированных напитков, сока, молока",
-            "other": "Можно сдать"
+            "other": "res"
         },
         {
             "image": "static/imgs/trash-types/2-hdpe.png",
             "title": "HDPE",
             "description": "Упаковки от шампуня, геля для душа, моющих средств",
-            "other": "Можно сдать"
+            "other": "res"
         },
         {
             "image": "static/imgs/trash-types/3-pvc.png",
             "title": "PVC",
             "description": "Контейнеры и пленка для пищевых продуктов",
-            "other": "Можно сдать"
+            "other": "res"
         },
         {
             "image": "static/imgs/trash-types/4-idpe.jpg",
             "title": "LDPE",
             "description": "Пластиковые пакеты, многоразовые сумки, бутылки от моющих средств",
-            "other": "Можно сдать"
+            "other": "res"
         },
         {
             "image": "static/imgs/trash-types/5-pp.png",
             "title": "PP",
             "description": "Контейнеры для пищевых продуктов, многоразовая пластиковая посуда, лотки в холодильниках",
-            "other": "Нельзя сдать"
+            "other": "nonres"
         },
         {
             "image": "static/imgs/trash-types/6-ps.jpg",
             "title": "PS",
             "description": "Одноразовая посуда, стаканчики из-под йогуртов, упаковки для яиц",
-            "other": "Можно сдать"
+            "other": "res"
         },
         {
             "image": "static/imgs/trash-types/7-other.jpg",
             "title": "OTHER",
             "description": "Поликорбонат, полиамид, биопластики и многослойная упаковка",
-            "other": "Нельзя сдать"
+            "other": "nonres"
         }
     ],
     "wastePaper": [
         {
             "title": "Группа А (высокое качество)",
             "description": "Белая немелованная бумага, обрезки белой бумаги, использованные белые пакеты.",
-            "other": "Можно сдать"
+            "other": "res"
         },
         {
             "title": "Группа Б (среднее качество)",
             "description": "Гофрокартон, архивные документы (офисная бумага), книги, журналы, блокноты.",
-            "other": "Можно сдать"
+            "other": "res"
         },
         {
             "title": "Группа В (низкое качество)",
             "description": "Газеты, бумажные втулки, картон с пропиткой, цветная бумага.",
-            "other": "Можно сдать"
+            "other": "res"
         }
     ],
     "glass": [
