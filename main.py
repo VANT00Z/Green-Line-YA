@@ -1,9 +1,9 @@
 from flask import Flask
 from flask import render_template, redirect, request, jsonify, json
 from back.data.models.users_model import UserModel
+from back.data.models.order_model import OrderModel
 from back.forms.user_form import RegisterForm, LoginForm
 from back.data import db_session
-import logging
 
 
 from flask_login import LoginManager
@@ -104,7 +104,7 @@ def register():
         'success': True,
         'message': 'Регистрация успешно завершена!',
         'redirect': '/delivery'
-    })
+    }), 400
 
 
 @app.route('/check_auth')
@@ -117,8 +117,47 @@ def check_auth():
                 'surname': current_user.surname,
                 'email': current_user.email
             }
-        })
+        }), 400
     return jsonify({'authenticated': False})
+
+
+@app.route('/order', methods=['POST'])
+def make_order():
+    data = request.json()
+    adress = data.get('adres')
+    date = data.get('date')
+    weight = data.get('weight')
+    description = data.get('description')
+
+    if not all(adress, date, weight):
+        return jsonify({
+            'success': False,
+            'message': 'Не все обязательные поля заполены'
+        })
+
+    if isinstance(weight, int):
+        return jsonify({
+            'success': False,
+            'message': 'Вес должен быть целочисленным'
+        })
+
+    session = db_session.create_session()
+
+    order = OrderModel(
+        adress=adress,
+        date=date,
+        weight=weight,
+        description=description
+    )
+
+    session.add(order)
+    session.commit()
+
+
+@app.route('/orders_history')
+@login_required
+def get_history():
+    session = db_session.create_session()
 
 
 @app.route('/')
