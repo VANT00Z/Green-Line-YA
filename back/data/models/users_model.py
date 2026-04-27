@@ -19,7 +19,7 @@ class UserModel(SqlAlchemyBase, UserMixin):
     cr_date = sqlalchemy.Column(
         sqlalchemy.DateTime, default=datetime.datetime.now)
 
-    orders = relationship("OrderModel", back_populates="user")
+    # orders = relationship("OrderModel", back_populates="user")
 
     def set_password(self, password):
         self.hashed_password = generate_password_hash(password)

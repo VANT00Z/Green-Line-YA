@@ -17,5 +17,5 @@ class OrderModel(SqlAlchemyBase):
     description = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     status = sqlalchemy.Column(sqlalchemy.String, default="Active")
 
-    user_id = Column(Integer, ForeignKey('users.id'))
-    relationship('user')
+    # user_id = Column(Integer, ForeignKey('users.id'))
+    # relationship('user')
