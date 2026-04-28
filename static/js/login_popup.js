@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const orderButton = document.querySelectorAll('#orderButton');
     const registerPopup = document.querySelector('.register-popup');
     const authPopup = document.querySelector('.auth-popup');
-    const changeButtons = document.querySelectorAll('#change-button');
+    const changeButtons = document.querySelectorAll('#changeButton');
     const closeButton = document.querySelector('.close-popup');
     // Buttons n burger
     const burgerButton = document.querySelectorAll('#burger');
