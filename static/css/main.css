@@ -92,17 +92,16 @@ a {
 
 
 /* pad (600 - 900 px) */
-@media screen and (min-width: 768px) and (max-width: 900px) {
+@media screen and (min-width: 600px) and (max-width: 900px) {
   header {
-    text-align: left;
+    text-align: center;
+    padding: 20px 40px;
   }
 
   .logo {
     font-size: 34px;
     font-weight: 900;
     text-shadow: 4px 4px 7px gray;
-    position: absolute;
-    padding: 20px 40px;
   }
 
   .sidebar {
@@ -110,10 +109,10 @@ a {
   }
 
   .buttons {
+    text-align: center;
     line-height: 50px;
     font-weight: 700;
     font-size: 24px;
-    width: 100%;
   }
 
   .button {
@@ -138,14 +137,16 @@ a {
   .other {
     font-size: 15px;
     padding: 20px 40px;
+    bottom: 20px;
   }
 }
 
 
 /* phone (660 px) */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {
   header {
     text-align: center;
+    padding: 20px;
   }
 
   .logo {
