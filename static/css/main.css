@@ -135,9 +135,10 @@ a {
   }
 
   .other {
+    margin-top: 120px;
+    text-align: center;
     font-size: 15px;
     padding: 20px 40px;
-    bottom: 20px;
   }
 }
 
