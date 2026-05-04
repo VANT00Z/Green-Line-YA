@@ -110,7 +110,6 @@ a {
 
   .buttons {
     text-align: center;
-    line-height: 50px;
     font-weight: 700;
     font-size: 24px;
   }
@@ -161,7 +160,7 @@ a {
   }
 
   .buttons {
-    font-weight: 600;
+    font-weight: 700;
     text-align: center;
     padding: 1px 4px;
     font-size: 14px;
