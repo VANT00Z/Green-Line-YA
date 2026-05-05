@@ -2,16 +2,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const orderButton = document.querySelectorAll('#orderButton');
     const registerPopup = document.querySelector('.register-popup');
     const authPopup = document.querySelector('.auth-popup');
-    const changeButtons = document.querySelectorAll('#changeButton');
-    const closeButton = document.querySelector('.close-popup');
-    // const burgerButton = document.querySelectorAll('#burger');
-    // const contactButton = document.querySelectorAll('#contactButton');
-    // const infoButton = document.querySelectorAll('#infoButton');
 
-    let isReg = true
+
+    const changeToAuth = document.querySelector('#changeToAuth');
+    const changeToReg = document.querySelector('#changeToReg');
+    const closeButtons = document.querySelectorAll('.close-popup');
+
+    let isReg = true;
 
     function showNotification(message, isError = false) {
-
         const notification = document.createElement('div');
         notification.className = 'custom-notification';
         notification.textContent = message;
@@ -47,9 +46,9 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
 
         const form = event.target;
-        const name = form.querySelector('input[name="register-name"]').value;
-        const surname = form.querySelector('input[name="register-surname"]').value;
-        const email = form.querySelector('input[name="register-email"]').value;
+        const name = form.querySelector('input[name="register-name"]').value.trim();
+        const surname = form.querySelector('input[name="register-surname"]').value.trim();
+        const email = form.querySelector('input[name="register-email"]').value.trim();
         const password = form.querySelector('input[name="register-password"]').value;
         const repPassword = form.querySelector('input[name="register-rep-password"]').value;
 
@@ -103,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
 
         const form = event.target;
-        const email = form.querySelector('input[name="auth-mail"]').value;
+        const email = form.querySelector('input[name="auth-mail"]').value.trim();
         const password = form.querySelector('input[name="auth-password"]').value;
 
         if (!email || !password) {
@@ -150,16 +149,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+
     const registerForm = document.querySelector('.reg-popup-form');
     const authForm = document.querySelector('.auth-popup-form');
 
-    if (registerForm) {
-        registerForm.addEventListener('submit', handleRegisterSubmit);
-    }
+    if (registerForm) registerForm.addEventListener('submit', handleRegisterSubmit);
+    if (authForm) authForm.addEventListener('submit', handleAuthSubmit);
 
-    if (authForm) {
-        authForm.addEventListener('submit', handleAuthSubmit);
-    }
 
     orderButton.forEach(button => {
         button.addEventListener('click', async function (event) {
@@ -173,42 +169,32 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    registerPopup.addEventListener('click', function (event) {
-        if (event.target === registerPopup) {
+    registerPopup.addEventListener('click', event => { if (event.target === registerPopup) closePopup(); });
+    authPopup.addEventListener('click', event => { if (event.target === authPopup) closePopup(); });
+
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && (registerPopup.style.display === 'block' || authPopup.style.display === 'block')) {
             closePopup();
         }
     });
 
-    authPopup.addEventListener('click', function (event) {
-        if (event.target === authPopup) {
-            closePopup();
-        }
-    });
+    closeButtons.forEach(button => button.addEventListener('click', (e) => { e.preventDefault(); closePopup(); }));
 
-    document.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape' &&
-            (registerPopup.style.display === 'block' || authPopup.style.display === 'block')) {
-            closePopup();
-        }
-    });
-
-    closeButton.addEventListener('click', closePopup);
-
-    changeButtons.forEach(button => {
-        button.addEventListener('click', function (event) {
+    if (changeToAuth) {
+        changeToAuth.addEventListener('click', function (event) {
             event.preventDefault();
-            if (isReg) {
-                registerPopup.style.display = 'none';
-                authPopup.style.display = 'block';
-                isReg = false;
-            } else {
-                registerPopup.style.display = 'block';
-                authPopup.style.display = 'none';
-                isReg = true;
-            }
+            registerPopup.style.display = 'none';
+            authPopup.style.display = 'block';
+            isReg = false;
         });
-    });
-    // function openButtons() {
+    }
 
-    // }
+    if (changeToReg) {
+        changeToReg.addEventListener('click', function (event) {
+            event.preventDefault();
+            registerPopup.style.display = 'block';
+            authPopup.style.display = 'none';
+            isReg = true;
+        });
+    }
 });
