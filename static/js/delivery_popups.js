@@ -10,9 +10,68 @@ document.addEventListener('DOMContentLoaded', function () {
     const historyPopup = document.getElementById('history-popup');
     const activePopup = document.getElementById('active-popup');
 
-    if (!deliveryPopup || !historyPopup || !activePopup || !closeButton) {
-        console.error('Один из элементов не найден в DOM');
-        return;
+    function showNotification(message, isError = false) {
+
+        const notification = document.createElement('div');
+        notification.className = 'custom-notification';
+        notification.textContent = message;
+        notification.style.position = 'fixed';
+        notification.style.top = '20px';
+        notification.style.right = '20px';
+        notification.style.padding = '10px 20px';
+        notification.style.backgroundColor = isError ? '#ff4444' : '#4CAF50';
+        notification.style.color = 'white';
+        notification.style.borderRadius = '5px';
+        notification.style.zIndex = '10000';
+        notification.style.fontSize = '14px';
+
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+            notification.remove();
+        }, 3000);
+    }
+
+    async function handleOrderCreate(event) {
+        event.preventDefault();
+
+        const form = event.target;
+        const adress = form.querySelector().value;
+        const datetime = form.querySelector().value;
+        const weight = form.querySelector().value;
+        const description = form.querySelector().value;
+
+        if (!adress || !datetime || !weight) {
+            showNotification('Заполните обязательные поля', true)
+        }
+        try {
+            const response = await fetch('/create_order', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    adress: adress,
+                    datetime: datetime,
+                    weight: weight,
+                    description: description
+                })
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                showNotification(data.message);
+                setTimeout(() => {
+                    window.location.href = data.redirect;
+                }, 1000);
+            } else {
+                showNotification(data.message, true);
+            }
+        } catch (error) {
+            console.error('Ошибка:', error);
+            showNotification('Ошибка сервера', true);
+        }
     }
 
     // open funcs

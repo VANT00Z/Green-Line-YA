@@ -4,10 +4,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const authPopup = document.querySelector('.auth-popup');
     const changeButtons = document.querySelectorAll('#changeButton');
     const closeButton = document.querySelector('.close-popup');
-    // Buttons n burger
-    const burgerButton = document.querySelectorAll('#burger');
-    const contactButton = document.querySelectorAll('#contactButton');
-    const infoButton = document.querySelectorAll('#infoButton');
+    // const burgerButton = document.querySelectorAll('#burger');
+    // const contactButton = document.querySelectorAll('#contactButton');
+    // const infoButton = document.querySelectorAll('#infoButton');
 
     let isReg = true
 
@@ -33,20 +32,17 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 3000);
     }
 
-    // open
     function openPopup() {
         registerPopup.style.display = 'block';
         authPopup.style.display = 'none';
         isReg = true;
     }
 
-    // close
     function closePopup() {
         registerPopup.style.display = 'none';
         authPopup.style.display = 'none';
     }
 
-    // Register check
     async function handleRegisterSubmit(event) {
         event.preventDefault();
 
@@ -57,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const password = form.querySelector('input[name="register-password"]').value;
         const repPassword = form.querySelector('input[name="register-rep-password"]').value;
 
-        // Valid
         if (!name || !surname || !email || !password || !repPassword) {
             showNotification('Заполните все поля', true);
             return;
@@ -104,7 +99,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Auth check
     async function handleAuthSubmit(event) {
         event.preventDefault();
 
@@ -156,7 +150,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Form checker
     const registerForm = document.querySelector('.reg-popup-form');
     const authForm = document.querySelector('.auth-popup-form');
 
@@ -215,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
-    function openButtons() {
+    // function openButtons() {
 
-    }
+    // }
 });
