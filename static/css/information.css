@@ -19,7 +19,12 @@ body {
     font-optical-sizing: auto;
     font-style: normal;
     color: black;
-    height: 100vh;
+    min-height: 100vh;
+    background: white;
+}
+
+.container {
+    width: 100%;
 }
 
 header {
@@ -47,14 +52,13 @@ header a:hover {
     animation-fill-mode: forwards;
 }
 
-ul {
-    list-style: none;
-}
-
 .content {
     padding: 0 7%;
     animation: fadeIn 1.2s ease-in;
-    text-align: center;
+}
+
+.content li {
+    list-style: none;
 }
 
 h1 {
@@ -67,81 +71,137 @@ h1 {
     padding: 20px 0;
 }
 
-.cont-li ul li a {
-    color: black;
-}
-
 .cont-li span {
     font-size: 16px;
     font-weight: 500;
 }
 
-.types .type {
-    padding: 10px 0;
-    display: flex;
-    /* flex-direction: column; */
-    align-items: center;
+.types {
+    margin-top: 20px;
+}
+
+.types h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 30px 0 15px 0;
+    padding-bottom: 5px;
+    border-bottom: 2px solid green;
+    display: inline-block;
+}
+
+.type {
+    margin-bottom: 30px;
+}
+
+.type ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-content: center;
+    list-style: none;
 }
 
 .type ul li {
-    margin-top: 10px;
-    margin-right: 10px;
-    gap: 10px;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: baseline;
     border: 1px solid black;
     border-radius: 10px;
-    padding: 10px 15px;
-    width: 250px;
-    height: 250px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: white;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.type ul li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .type ul li img {
     width: 100px;
     height: 120px;
-}
-
-.type ul li p {
-    font-size: 16px;
-    font-weight: 500;
-    width: 200px;
-    text-align: left;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
 }
 
 .type ul li h3 {
-    font-size: 16px;
-    padding-top: 10px;
-    text-align: left;
-    text-transform: pre;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 10px 0 8px 0;
 }
 
-.types .type li .res::before {
+.type ul li p {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #333;
+}
+
+.type ul li .res::before {
     font-weight: 700;
-    font-size: 16px;
-    content: 'Можно сдать';
+    font-size: 14px;
+    content: '♻️ Можно сдать';
+    color: green;
+    display: inline-block;
+    margin-top: 8px;
+}
+
+.type ul li .nonres::before {
+    font-weight: 700;
+    font-size: 14px;
+    content: '❌ Нельзя сдать';
+    color: red;
+    display: inline-block;
+    margin-top: 8px;
+}
+
+.type ul li .blackmet::before {
+    font-size: 14px;
+    font-weight: 700;
+    content: '⚫ Черный металлолом';
+    color: black;
+    display: inline-block;
+    margin-top: 8px;
+}
+
+.type ul li .colormet::before {
+    font-size: 14px;
+    font-weight: 700;
+    content: '🟤 Цветной металлолом';
+    color: brown;
+    display: inline-block;
+    margin-top: 8px;
+}
+
+.type:has(.plastic-item) ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.cont-li ul:not(.types) {
+    list-style: none;
+    padding-left: 0;
+}
+
+.cont-li ul:not(.types) h2 {
+    font-size: 20px;
+    margin: 20px 0 10px 0;
     color: green;
 }
 
-.types .type li .nonres::before {
-    font-weight: 700;
-    font-size: 16px;
-    content: 'Нельзя сдать';
-    color: red;
+.cont-li ul:not(.types) li {
+    margin: 8px 0;
 }
 
-.types .type li .blackmet::before {
-    font-size: 16px;
-    font-weight: 700;
-    content: 'Черный металлолом';
-    color: black;
+.cont-li ul:not(.types) li a {
+    color: #0066cc;
+    text-decoration: none;
 }
 
-.types .type li .colormet::before {
-    font-size: 16px;
-    font-weight: 700;
-    content: 'Цветной металлолом';
-    color: brown;
+.cont-li ul:not(.types) li a:hover {
+    text-decoration: underline;
 }
 
 .scroll-up {
@@ -159,6 +219,26 @@ h1 {
     animation: fadeIn 1s;
 }
 
+@media (max-width: 900px) {
+    .type ul {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .type ul {
+        grid-template-columns: 1fr !important;
+    }
+
+    .content {
+        padding: 0 4%;
+    }
+
+    header a {
+        font-size: 24px;
+    }
+}
+
 @keyframes fadeIn {
     from {
         transform: translateY(20px);
@@ -168,18 +248,6 @@ h1 {
     to {
         transform: translateY(0);
         opacity: 1;
-    }
-}
-
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    to {
-        opacity: 0;
-        visibility: hidden;
     }
 }
 

@@ -28,15 +28,15 @@
         <ul class="types">
           <h2>Пластик</h2>
           <li class="type">
-            {% for item in info.plastic %}
-              <ul>
+            <ul>
+              {% for item in info.plastic %}
                 <li>
                   <img src="{{ item.image }}" alt="" />
                   <p>{{ item.description }}</p>
                   <p class="{{ item.other }}"></p>
                 </li>
-              </ul>
-            {% endfor %}
+              {% endfor %}
+            </ul>
           </li>
           <h2>Макулатура</h2>
           <li class="type">
@@ -86,7 +86,6 @@
           <h2>Металл</h2>
           <li class="type">
             <ul>
-              <h3>Черный металл</h3>
               <li>
                 <img src="{{ url_for('static', filename='imgs/metal-types/armature.jpg') }}" alt="Стальной лом" />
                 <h3>Стальной лом</h3>
@@ -107,7 +106,6 @@
                 <h3>Стружка</h3>
                 <p>Стальная или чугунная</p>
               </li>
-              <h3>Цветной металл</h3>
               <li>
                 <img src="{{ url_for('static', filename='imgs/metal-types/copper.jpg') }}" alt="Медь" />
                 <h3>Медь</h3>
