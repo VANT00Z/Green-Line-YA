@@ -86,52 +86,62 @@
         {
             "image": "static/imgs/metal-types/armature.jpg",
             "title": "Стальной лом",
-            "description": "Трубы, уголки, швеллеры, балки, арматура, листовой металл"
+            "description": "Трубы, уголки, швеллеры, балки, арматура, листовой металл",
+            "other": "blackmet"
         },
         {
             "image": "static/imgs/metal-types/plumbing.jpg",
             "title": "Чугунный лом",
-            "description": "Сантехника, радиаторы, промышленные детали, стружка"
+            "description": "Сантехника, радиаторы, промышленные детали, стружка",
+            "other": "blackmet"
         },
         {
             "image": "static/imgs/metal-types/noncor-metal.jpeg",
             "title": "Нержавеющая сталь",
-            "description": "Отходы с содержанием никеля (более 10 процентов)"
+            "description": "Отходы с содержанием никеля (более 10 процентов)",
+            "other": "colormet"
         },
         {
             "image": "static/imgs/metal-types/metal-parts.jpg",
             "title": "Стружка",
-            "description": "Стальная или чугунная"
+            "description": "Стальная или чугунная",
+            "other": "colormet"
         },
         {
             "image": "static/imgs/metal-types/copper.jpg",
             "title": "Медь",
-            "description": "Кабели, электропроводка"
+            "description": "Кабели, электропроводка",
+            "other": "colormet"
         },
         {
             "image": "static/imgs/metal-types/aluminium.jpg",
             "title": "Алюминий",
-            "description": "Профиль, банки, электропроводка"
+            "description": "Профиль, банки, электропроводка",
+            "other": "colormet"
         },
         {
             "image": "static/imgs/metal-types/brass.png",
             "title": "Латунь",
-            "description": "Сплав меди с цинком (радиаторы, сантехнические изделия, стружка)"
+            "description": "Сплав меди с цинком (радиаторы, сантехнические изделия, стружка)",
+            "other": "colormet"
         },
         {
             "image": "static/imgs/metal-types/bronze.jpg",
             "title": "Бронза",
-            "description": "Сплав меди с оловом, изделия, стружка"
+            "description": "Сплав меди с оловом, изделия, стружка",
+            "other": "colormet"
         },
         {
             "image": "static/imgs/metal-types/lead.png",
             "title": "Свинец",
-            "description": "Кабель, переплав, аккумуляторы"
+            "description": "Кабель, переплав, аккумуляторы",
+            "other": "colormet"
         },
         {
             "image": "static/imgs/metal-types/titan.png",
             "title": "Титан/Магний",
-            "description": "Технические детали"
+            "description": "Технические детали",
+            "other": "colormet"
         }
     ],
     "rubber": [
@@ -158,17 +168,17 @@
     ],
     "other": [
         {
-            "image": "static/imgs/",
+            "image": "static/imgs/other-trash-imgs/wood.avif",
             "title": "Древесина",
             "description": "Стружка, опилки, тара и тп"
         },
         {
-            "image": "static/imgs/",
+            "image": "static/imgs/other-trash-imgs/textile.avif",
             "title": "Текстиль",
             "description": "Ткани, одежда, обувь и тп"
         },
         {
-            "image": "static/imgs/",
+            "image": "static/imgs/other-trash-imgs/tetra-pak.jpg",
             "title": "Тетра-пак",
             "description": "Многослойные (сложные) упаковки, материалы"
         }

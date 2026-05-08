@@ -41,146 +41,62 @@
           <h2>Макулатура</h2>
           <li class="type">
             <ul>
-              <li>
-                <h3>Группа А (высокое качество)</h3>
-                <p>Белая немелованная бумага, обрезки белой бумаги, использованные белые пакеты.</p>
-                <p class="res"></p>
-              </li>
-              <li>
-                <h3>Группа Б (среднее качество)</h3>
-                <p>Гофрокартон, архивные документы (офисная бумага), книги, журналы, блокноты.</p>
-                <p class="res"></p>
-              </li>
-              <li>
-                <h3>Группа В (низкое качество)</h3>
-                <p>Газеты, бумажные втулки, картон с пропиткой, цветная бумага.</p>
-                <p class="res"></p>
-              </li>
+              {% for item in info.wastePaper %}
+                <li>
+                  <h3>{{ item.title }}</h3>
+                  <p>{{ item.description }}</p>
+                  <p class="{{ item.other }}"></p>
+                </li>
+              {% endfor %}
             </ul>
           </li>
           <h2>Стекло</h2>
           <li class="type">
             <ul>
-              <li>
-                <img src="{{ url_for('static', filename='imgs/glass-types/clear_glass.jpg') }}" alt="Стеклотара" />
-                <h3>Стеклотара</h3>
-                <p>Банки, бутылки, флаконы из-под напитков</p>
-              </li>
-              <li>
-                <img src="{{ url_for('static', filename='imgs/glass-types/window_glass.jpg') }}" alt="Листовое стекло" />
-                <h3>Листовое стекло</h3>
-                <p>Оконное, строительное стекла</p>
-              </li>
-              <li>
-                <img src="{{ url_for('static', filename='imgs/glass-types/glass_parts.avif') }}" alt="Стеклобой" />
-                <h3>Стеклобой</h3>
-                <p>Осколки всех перечисленных видов, разделяються на два вида до 50 мм и до 2 кг</p>
-              </li>
-              <li>
-                <img src="{{ url_for('static', filename='imgs/glass-types/glass.jpg') }}" alt="Посуда" />
-                <h3>Посуда</h3>
-                <p>Тарелки, чашки, кружки и тому подобное</p>
-              </li>
+              {% for item in info.glass %}
+                <li>
+                  <img src="{{ item.image }}" alt="{{ item.title }}" />
+                  <h3>{{ item.title }}</h3>
+                  <p>{{ item.description }}</p>
+                </li>
+              {% endfor %}
             </ul>
           </li>
           <h2>Металл</h2>
           <li class="type">
             <ul>
-              <li>
-                <img src="{{ url_for('static', filename='imgs/metal-types/armature.jpg') }}" alt="Стальной лом" />
-                <h3>Стальной лом</h3>
-                <p>Трубы, уголки, швеллеры, балки, арматура, листовой металл</p>
-              </li>
-              <li>
-                <img src="{{ url_for('static', filename='imgs/metal-types/plumbing.jpg') }}" alt="Чугунный лом" />
-                <h3>Чугунный лом</h3>
-                <p>Сантехника, радиаторы, промышленные детали, стружка</p>
-              </li>
-              <li>
-                <img src="{{ url_for('static', filename='imgs/metal-types/noncor-metal.jpeg') }}" alt="Нержавеющая сталь" />
-                <h3>Нержавеющая сталь</h3>
-                <p>Отходы с содержанием никеля (более 10 процентов)</p>
-              </li>
-              <li>
-                <img src="{{ url_for('static', filename='imgs/metal-types/metal-parts.jpg') }}" alt="Стружка" />
-                <h3>Стружка</h3>
-                <p>Стальная или чугунная</p>
-              </li>
-              <li>
-                <img src="{{ url_for('static', filename='imgs/metal-types/copper.jpg') }}" alt="Медь" />
-                <h3>Медь</h3>
-                <p>Кабели, электропроводка</p>
-              </li>
-              <li>
-                <img src="{{ url_for('static', filename='imgs/metal-types/aluminium.jpg') }}" alt="Алюминий" />
-                <h3>Алюминий</h3>
-                <p>Профиль, банки, электропроводка</p>
-              </li>
-              <li>
-                <img src="{{ url_for('static', filename='imgs/metal-types/brass.png') }}" alt="Латунь" />
-                <h3>Латунь</h3>
-                <p>Сплав меди с цинком (радиаторы, сантехнические изделия, стружка)</p>
-              </li>
-              <li>
-                <img src="{{ url_for('static', filename='imgs/metal-types/bronze.jpg') }}" alt="Бронза" />
-                <h3>Бронза</h3>
-                <p>Сплав меди с оловом, изделия, стружка</p>
-              </li>
-              <li>
-                <img src="{{ url_for('static', filename='imgs/metal-types/lead.png') }}" alt="Свинец" />
-                <h3>Свинец</h3>
-                <p>Кабель, переплав, аккумуляторы</p>
-              </li>
-              <li>
-                <img src="{{ url_for('static', filename='imgs/metal-types/titan.png') }}" alt="Титан/Магний" />
-                <h3>Титан/Магний</h3>
-                <p>Технические детали</p>
-              </li>
+              {% for item in info.metal %}
+                <li>
+                  <img src="{{ item.image }}" alt="" />
+                  <h3>{{ item.title }}</h3>
+                  <p>{{ item.description }}</p>
+                  <p class="{{ item.other }}"></p>
+                </li>
+              {% endfor %}
             </ul>
           </li>
           <h2>Резина</h2>
           <li class="type">
             <ul>
-              <li>
-                <img src="" alt="Легковые шины" />
-                <h3>Легковые шины</h3>
-                <p>Шины для легкового транспорта. R13 - 19 и более</p>
-              </li>
-              <li>
-                <img src="" alt="Грузовые шины" />
-                <h3>Грузовые шины</h3>
-                <p>Шины для грузового транспорта: грузовики, газели и тп. R17 - 24</p>
-              </li>
-              <li>
-                <img src="" alt="Крупногабаритные шины" />
-                <h3>Крупногабаритные шины</h3>
-                <p>Шины для сверхтяжелой карьерной, строительной техники. R8 - 24</p>
-              </li>
-              <li>
-                <img src="" alt="Цельнолитые шины" />
-                <h3>Цельнолитые шины</h3>
-                <p>Шины без содержания воздуха. Часто используются для спецтехники. R24 - 51 и более</p>
-              </li>
+              {% for item in info.rubber %}
+                <li>
+                  <img src="{{ item.image }}" alt="{{ item.title }}" />
+                  <h3>{{ item.title }}</h3>
+                  <p>{{ item.description }}</p>
+                </li>
+              {% endfor %}
             </ul>
           </li>
           <h2>Остальное</h2>
           <li class="type">
             <ul>
-              <li>
-                <img src="{{ url_for('static', filename='imgs/other-trash-imgs/wood.avif') }}" alt="Древесина" />
-                <h3>Древесина</h3>
-                <p>Стружка, опилки, тара и тп</p>
-              </li>
-              <li>
-                <img src="{{ url_for('static', filename='imgs/other-trash-imgs/textile.avif') }}" alt="Текстиль" />
-                <h3>Текстиль</h3>
-                <p>Ткани, одежда, обувь и тп</p>
-              </li>
-              <li>
-                <img src="{{ url_for('static', filename='imgs/other-trash-imgs/tetra-pak.jpg  ') }}" alt="Тетра-пак" />
-                <h3>Тетра-пак</h3>
-                <p>Многослойные (сложные) упаковки, материалы</p>
-              </li>
+              {% for item in info.other %}
+                <li>
+                  <img src="{{ item.image }}" alt="{{ item.title }}" />
+                  <h3>{{ item.title }}</h3>
+                  <p>{{ item.description }}</p>
+                </li>
+              {% endfor %}
             </ul>
           </li>
         </ul>
