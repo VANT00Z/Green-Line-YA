@@ -1,17 +1,16 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Buttons
     const deliveryButton = document.querySelectorAll('#open-order-popup');
     const historyButton = document.querySelectorAll('#open-history-popup');
     const activeButton = document.querySelectorAll('#open-active-popup');
-    const closeButton = document.querySelector('.close-popup');
+    const closeButtons = document.querySelectorAll('.close-popup');
 
-    // Popups
     const deliveryPopup = document.getElementById('delivery-popup');
     const historyPopup = document.getElementById('history-popup');
     const activePopup = document.getElementById('active-popup');
 
-    function showNotification(message, isError = false) {
+    const orderForm = document.getElementById('order-form');
 
+    function showNotification(message, isError = false) {
         const notification = document.createElement('div');
         notification.className = 'custom-notification';
         notification.textContent = message;
@@ -24,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
         notification.style.borderRadius = '5px';
         notification.style.zIndex = '10000';
         notification.style.fontSize = '14px';
+        notification.style.animation = 'fadeIn 0.3s ease-in';
 
         document.body.appendChild(notification);
 
@@ -36,14 +36,16 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
 
         const form = event.target;
-        const adress = form.querySelector().value;
-        const datetime = form.querySelector().value;
-        const weight = form.querySelector().value;
-        const description = form.querySelector().value;
+        const address = form.querySelector('[name="delivery-address"]').value;
+        const datetime = form.querySelector('[name="delivery-date"]').value;
+        const weight = form.querySelector('[name="delivery-weight"]').value;
+        const description = form.querySelector('[name="delivery-description"]').value;
 
-        if (!adress || !datetime || !weight) {
-            showNotification('Заполните обязательные поля', true)
+        if (!address || !datetime || !weight) {
+            showNotification('Заполните обязательные поля', true);
+            return;
         }
+
         try {
             const response = await fetch('/create_order', {
                 method: 'POST',
@@ -51,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    adress: adress,
+                    address: address,
                     datetime: datetime,
                     weight: weight,
                     description: description
@@ -62,9 +64,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (data.success) {
                 showNotification(data.message);
+                form.reset();
+                closeAll();
                 setTimeout(() => {
-                    window.location.href = data.redirect;
-                }, 1000);
+                    location.reload();
+                }, 1500);
             } else {
                 showNotification(data.message, true);
             }
@@ -74,26 +78,122 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // open funcs
+    async function loadActiveOrders() {
+        const activeContent = document.getElementById('active-content');
+        if (!activeContent) return;
+
+        activeContent.innerHTML = '<div class="loading">Загрузка...</div>';
+
+        try {
+            const response = await fetch('/get_active_orders');
+            const data = await response.json();
+
+            if (data.success && data.orders.length > 0) {
+                activeContent.innerHTML = data.orders.map(order => `
+                    <div class="order-card">
+                        <h4>Заказ #${order.id}</h4>
+                        <p><strong>Адрес:</strong> ${order.address}</p>
+                        <p><strong>Дата:</strong> ${order.date}</p>
+                        <p><strong>Вес:</strong> ${order.weight} кг</p>
+                        ${order.description ? `<p><strong>Описание:</strong> ${order.description}</p>` : ''}
+                        <p class="order-date"><strong>Создан:</strong> ${order.created_at}</p>
+                        <div class="order-actions">
+                            <button onclick="cancelOrder(${order.id})" class="cancel-btn">Отменить заказ</button>
+                        </div>
+                    </div>
+                `).join('');
+            } else if (data.success) {
+                activeContent.innerHTML = '<div class="empty-message">У вас нет активных заказов</div>';
+            } else {
+                activeContent.innerHTML = '<div class="empty-message">Ошибка загрузки заказов</div>';
+            }
+        } catch (error) {
+            console.error('Ошибка:', error);
+            activeContent.innerHTML = '<div class="empty-message">Ошибка загрузки заказов</div>';
+        }
+    }
+
+    async function loadHistoryOrders() {
+        const historyContent = document.getElementById('history-content');
+        if (!historyContent) return;
+
+        historyContent.innerHTML = '<div class="loading">Загрузка...</div>';
+
+        try {
+            const response = await fetch('/get_orders_history');
+            const data = await response.json();
+
+            if (data.success && data.orders.length > 0) {
+                historyContent.innerHTML = data.orders.map(order => `
+                    <div class="order-card">
+                        <h4>Заказ #${order.id}</h4>
+                        <p><strong>Адрес:</strong> ${order.address}</p>
+                        <p><strong>Дата:</strong> ${order.date}</p>
+                        <p><strong>Вес:</strong> ${order.weight} кг</p>
+                        ${order.description ? `<p><strong>Описание:</strong> ${order.description}</p>` : ''}
+                        <p class="order-date"><strong>Выполнен:</strong> ${order.created_at}</p>
+                    </div>
+                `).join('');
+            } else if (data.success) {
+                historyContent.innerHTML = '<div class="empty-message">История заказов пуста</div>';
+            } else {
+                historyContent.innerHTML = '<div class="empty-message">Ошибка загрузки истории</div>';
+            }
+        } catch (error) {
+            console.error('Ошибка:', error);
+            historyContent.innerHTML = '<div class="empty-message">Ошибка загрузки истории</div>';
+        }
+    }
+
+    window.cancelOrder = async function (orderId) {
+        if (confirm('Вы уверены, что хотите отменить этот заказ?')) {
+            try {
+                const response = await fetch(`/cancel_order/${orderId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showNotification(data.message);
+                    await loadActiveOrders();
+                } else {
+                    showNotification(data.message, true);
+                }
+            } catch (error) {
+                console.error('Ошибка:', error);
+                showNotification('Ошибка при отмене заказа', true);
+            }
+        }
+    };
+
     function openDeliveryPopup() {
         deliveryPopup.style.display = 'block';
         closeHistoryPopup();
         closeActivePopup();
     }
 
-    function openHistoryPopup() {
-        if (historyPopup) historyPopup.style.display = 'block';
+    async function openHistoryPopup() {
+        if (historyPopup) {
+            await loadHistoryOrders();
+            historyPopup.style.display = 'block';
+        }
         closeDeliveryPopup();
         closeActivePopup();
     }
 
-    function openActivePopup() {
-        if (activePopup) activePopup.style.display = 'block';
+    async function openActivePopup() {
+        if (activePopup) {
+            await loadActiveOrders();
+            activePopup.style.display = 'block';
+        }
         closeDeliveryPopup();
         closeHistoryPopup();
     }
 
-    // close funcs
     function closeDeliveryPopup() {
         if (deliveryPopup) deliveryPopup.style.display = 'none';
     }
@@ -118,11 +218,14 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    if (closeButton) {
-        closeButton.addEventListener('click', closeAll);
+    closeButtons.forEach(button => {
+        button.addEventListener('click', closeAll);
+    });
+
+    if (orderForm) {
+        orderForm.addEventListener('submit', handleOrderCreate);
     }
 
-    // other
     if (deliveryButton.length > 0) {
         deliveryButton.forEach(button => {
             button.addEventListener('click', function (event) {
@@ -168,3 +271,18 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+`;
+document.head.appendChild(style);

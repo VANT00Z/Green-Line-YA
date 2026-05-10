@@ -28,12 +28,12 @@
 
   <div class="popup" id="delivery-popup">
     <div class="popup-container">
-      <div class="popup-body" style="max-width: 500px;">
+      <div class="popup-body">
         <p>Заказать</p>
-        <form action="create_order" method="post">
-          <input name="delivery-adress" type="text" placeholder="Адрес" />
-          <input name="delivery-date" type="datetime-local" />
-          <input name="delivery-weight" type="number" placeholder="Приблизительный вес" />
+        <form id="order-form">
+          <input name="delivery-address" type="text" placeholder="Адрес" required />
+          <input name="delivery-date" type="datetime-local" required />
+          <input name="delivery-weight" type="number" placeholder="Приблизительный вес (кг)" required />
           <input name="delivery-description" type="text" placeholder="Описание" />
           <button type="submit">Оформить</button>
           <a class="close-popup" style="cursor: pointer;">Закрыть</a>
@@ -45,7 +45,11 @@
   <div class="popup" id="history-popup">
     <div class="popup-container">
       <div class="popup-body">
-        <p>История</p>
+        <p>История заказов</p>
+        <div id="history-content" class="orders-container">
+          <div class="loading">Загрузка...</div>
+        </div>
+        <a class="close-popup" style="cursor: pointer;">Закрыть</a>
       </div>
     </div>
   </div>
@@ -53,7 +57,11 @@
   <div class="popup" id="active-popup">
     <div class="popup-container">
       <div class="popup-body">
-        <p>Активные</p>
+        <p>Активные заказы</p>
+        <div id="active-content" class="orders-container">
+          <div class="loading">Загрузка...</div>
+        </div>
+        <a class="close-popup" style="cursor: pointer;">Закрыть</a>
       </div>
     </div>
   </div>
