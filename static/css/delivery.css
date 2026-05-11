@@ -20,7 +20,6 @@ a {
     color: black;
 }
 
-/* Logo */
 header a {
     font-size: 34px;
     font-weight: 900;
@@ -114,7 +113,7 @@ header p {
     border-radius: 20px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 14%;
+    margin-top: 50%;
     filter: drop-shadow(0 0 20px black);
     animation: popupFade 0.4s ease-in;
 }
@@ -290,7 +289,6 @@ header p {
     font-style: italic;
 }
 
-/* Адаптивность для мобильных устройств */
 @media only screen and (max-width: 768px) {
     .orders-container {
         min-width: 300px;
