@@ -51,6 +51,7 @@ header p {
     position: absolute;
     padding-top: 30vh;
     gap: 10px;
+    cursor: pointer;
 }
 
 .content .buttons button {
@@ -113,7 +114,7 @@ header p {
     border-radius: 20px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 50%;
+    margin-top: 14%;
     filter: drop-shadow(0 0 20px black);
     animation: popupFade 0.4s ease-in;
 }
@@ -209,7 +210,11 @@ header p {
     .content .buttons button {
         font-size: 32px;
         width: auto;
-        padding: 10px 20px;
+        padding: 10px 50px;
+    }
+
+    .popup-body {
+        margin-top: 50%;
     }
 }
 

@@ -1,5 +1,3 @@
-
-
 from flask import Flask
 from flask import render_template, redirect, request, jsonify, json
 from back.data.models.users_model import UserModel
@@ -296,7 +294,7 @@ def info():
 
 def main():
     db_session.global_init('db.sqlite')
-    app.run(port=8000, debug=True)
+    app.run(port=8000, host="192.168.2.52",debug=True)
 
 
 if __name__ == "__main__":
