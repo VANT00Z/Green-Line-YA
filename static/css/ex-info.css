@@ -83,13 +83,14 @@
 }
 
 /* phone (660 px) */
-@media only screen and (max-width: 660px) {
+@media only screen and (max-width: 768px) {
     body {
         overflow-x: hidden;
     }
 
     .texts {
         padding: 20px;
+        font-size: 14px;
     }
 
     nav {
@@ -98,7 +99,8 @@
     }
 
     nav ul {
-        list-style: none
+        list-style: none;
+        font-size: 14px;
     }
 
     .element {
@@ -118,7 +120,7 @@ body {
 }
 
 header {
-    padding: 30px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-content: flex-start;

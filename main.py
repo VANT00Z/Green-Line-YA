@@ -189,7 +189,7 @@ def get_active_orders():
         OrderModel.user_id == current_user.id,
         OrderModel.is_active == True
     ).order_by(OrderModel.date).all()
-    
+
     return jsonify({
         'success': True,
         'orders': [order.to_dict() for order in orders]
@@ -205,7 +205,7 @@ def get_orders_history():
         OrderModel.user_id == current_user.id,
         OrderModel.is_active == False
     ).order_by(OrderModel.created_at.desc()).all()
-    
+
     return jsonify({
         'success': True,
         'orders': [order.to_dict() for order in orders]
@@ -222,16 +222,16 @@ def cancel_order(order_id):
         OrderModel.user_id == current_user.id,
         OrderModel.is_active == True
     ).first()
-    
+
     if not order:
         return jsonify({
             'success': False,
             'message': 'Заказ не найден или уже выполнен'
         }), 404
-    
+
     session.delete(order)
     session.commit()
-    
+
     return jsonify({
         'success': True,
         'message': 'Заказ успешно отменен'
@@ -247,16 +247,16 @@ def complete_order(order_id):
         OrderModel.id == order_id,
         OrderModel.is_active == True
     ).first()
-    
+
     if not order:
         return jsonify({
             'success': False,
             'message': 'Заказ не найден'
         }), 404
-    
+
     order.is_active = False
     session.commit()
-    
+
     return jsonify({
         'success': True,
         'message': 'Заказ выполнен'
@@ -294,7 +294,7 @@ def info():
 
 def main():
     db_session.global_init('db.sqlite')
-    app.run(port=8000,debug=True)
+    app.run(port=8000, host="172.31.122.167", debug=True)
 
 
 if __name__ == "__main__":
