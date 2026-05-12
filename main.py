@@ -294,7 +294,7 @@ def info():
 
 def main():
     db_session.global_init('db.sqlite')
-    app.run(port=8000, host="172.31.122.167", debug=True)
+    app.run(port=8000, debug=True)
 
 
 if __name__ == "__main__":

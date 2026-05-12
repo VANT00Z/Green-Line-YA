@@ -146,22 +146,22 @@
     ],
     "rubber": [
         {
-            "image": "static/imgs/",
+            "image": "static/imgs/tires-types/light-tires.jpg",
             "title": "Легковые шины",
             "description": "Шины для легкового транспорта. R13 - 19 и более"
         },
         {
-            "image": "static/imgs/",
+            "image": "static/imgs/tires-types/spec-tires.jpg",
             "title": "Грузовые шины",
             "description": "Шины для грузового транспорта: грузовики, газели и тп. R17 - 24"
         },
         {
-            "image": "static/imgs/",
+            "image": "static/imgs/tires-types/big-tires.webp",
             "title": "Крупногабаритные шины",
             "description": "Шины для сверхтяжелой карьерной, строительной техники. R8 - 24"
         },
         {
-            "image": "static/imgs/",
+            "image": "static/imgs/tires-types/solid-tires.webp",
             "title": "Цельнолитые шины",
             "description": "Шины без содержания воздуха. Часто используются для спецтехники. R24 - 51 и более"
         }
